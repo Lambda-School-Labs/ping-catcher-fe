@@ -19,7 +19,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll",
+    "test": "react-scripts test",
+    "test:watch": "react-scripts test --watchAll --no-cache",
+    "coverage": "CI=true react-scripts test --coverage  --watchAll=false || true",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,6 +37,27 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!**/index.js",
+      "!**/vendor/**",
+      "!**/tests/**",
+      "!**/coverage/**",
+      "!**/*.test.js",
+      "!**/node_modules/**",
+      "!**/serviceWorker.js",
+      "!**/setupTests.js"
+    ],
+    "coverageReporters": [
+      "text-summary",
+      "text",
+      "json",
+      "clover",
+      "lcov",
+      "html"
     ]
   }
 }
