@@ -5,6 +5,7 @@ import "./App.css";
 
 const Home = lazy(() => import("./components/Home"));
 const Navbar = lazy(() => import("./components/Navbar"));
+const Login = lazy(() => import("./components/Login"));
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/Login" component={Login} />
           </Switch>
         </Suspense>
       </Router>
