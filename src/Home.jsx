@@ -25,6 +25,7 @@ const Home = () => {
     } else {
       authService.getUser().then((info) => {
         setUserInfo(info);
+        //TODO: send call to back end with user info
       });
     }
   }, [authState, authService]); // Update if authState changes
