@@ -10,27 +10,34 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import { Container } from "semantic-ui-react";
 import config from "./config";
-import Home from "./Home";
-import Messages from "./Messages";
-import Navbar from "./Navbar";
-import Profile from "./Profile";
+
+const Home = lazy(() => import("./Home"));
+const Messages = lazy(() => import("./Messages"));
+const Navbar = lazy(() => import("./Navbar"));
+const Profile = lazy(() => import("./Profile"));
 
 const App = () => (
   <Router>
-    <Security {...config.oidc}>
-      <Navbar />
-      <Container text style={{ marginTop: "7em" }}>
-        <Route path="/" exact component={Home} />
-        <Route path="/implicit/callback" component={LoginCallback} />
-        <SecureRoute path="/messages" component={Messages} />
-        <SecureRoute path="/profile" component={Profile} />
-      </Container>
-    </Security>
+    <Suspense fallback={<div>Loading</div>}>
+      <Security {...config.oidc}>
+        <Navbar />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Container text style={{ marginTop: "7em" }}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/implicit/callback" component={LoginCallback} />
+              <SecureRoute path="/messages" component={Messages} />
+              <SecureRoute path="/profile" component={Profile} />
+            </Switch>
+          </Container>
+        </Suspense>
+      </Security>
+    </Suspense>
   </Router>
 );
 export default App;
