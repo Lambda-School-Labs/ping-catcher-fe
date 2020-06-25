@@ -21,6 +21,8 @@ const Messages = lazy(() => import("./Messages"));
 const Navbar = lazy(() => import("./Navbar"));
 const Profile = lazy(() => import("./Profile"));
 
+const PingCard = lazy(() => import("./components/PingCard.js"));
+
 const App = () => (
   <Router>
     <Suspense fallback={<div>Loading</div>}>
@@ -31,6 +33,7 @@ const App = () => (
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/implicit/callback" component={LoginCallback} />
+              <Route path="/pingCard" component={PingCard} />
               <SecureRoute path="/messages" component={Messages} />
               <SecureRoute path="/profile" component={Profile} />
             </Switch>
