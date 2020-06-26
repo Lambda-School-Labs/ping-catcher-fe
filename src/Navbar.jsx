@@ -26,12 +26,14 @@ const Navbar = () => {
     <div>
       <Menu fixed="top">
         <Container>
-          <Menu.Item>
+          <Menu.Item id="home" as="a" href="/">
             <Image size="tiny" src="/images/ping7.png" />
           </Menu.Item>
-          <Menu.Item as="a" header href="/">
-            &nbsp; <Dashboard />
-          </Menu.Item>
+          {authState.isAuthenticated && (
+            <Menu.Item as="a" header href="/">
+              &nbsp; <Dashboard />
+            </Menu.Item>
+          )}
           {authState.isAuthenticated && (
             <Menu.Item id="messages-button" as="a" href="/messages">
               <Icon name="mail outline" />
