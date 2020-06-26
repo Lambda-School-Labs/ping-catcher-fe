@@ -7,12 +7,12 @@ export default {
   oidc: {
     clientId: CLIENT_ID,
     issuer: ISSUER,
-    redirectUri: "https://ping-catcher.com/implicit/callback",
+    redirectUri: "https://www.ping-catcher.com/implicit/callback",
     scopes: ["openid", "profile", "email"],
     pkce: true,
     disableHttpsCheck: OKTA_TESTING_DISABLEHTTPSCHECK,
   },
   resourceServer: {
-    messagesUrl: "https://ping-catcher.com/api/messages",
+    messagesUrl: "https://www.ping-catcher.com/api/messages",
   },
 };
