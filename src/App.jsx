@@ -25,7 +25,7 @@ const PingCard = lazy(() => import("./components/PingCard.js"));
 
 const App = () => (
   <Router>
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <Security {...config.oidc}>
         <Navbar />
         <Suspense fallback={<div>Loading...</div>}>
