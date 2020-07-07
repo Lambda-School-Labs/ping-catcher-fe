@@ -28,6 +28,7 @@ const Navbar = () => {
           <Menu.Item>
             <Image size="tiny" src="/images/ping7.png" as="a" href="/" />
           </Menu.Item>
+
           {authState.isAuthenticated && (
             <Menu.Item id="messages-button" as="a" href="/messages">
               <Icon name="mail outline" />

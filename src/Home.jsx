@@ -17,6 +17,7 @@ import { Button, Header } from "semantic-ui-react";
 import Sidebar from "./components/SideBar";
 import SlackEvents from "./components/SlackEvents";
 
+
 const Home = () => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
