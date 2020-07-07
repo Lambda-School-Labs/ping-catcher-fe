@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Label, Menu } from "semantic-ui-react";
+import { Label, Menu } from "semantic-ui-react";
 
 export default class SideBar extends Component {
   state = { activeItem: "inbox" };
@@ -11,9 +11,7 @@ export default class SideBar extends Component {
 
     return (
       <Menu vertical inverted>
-        <Menu.Item>
-          <Input icon="search" placeholder="Search mail..." />
-        </Menu.Item>
+        <Menu.Item></Menu.Item>
         <Menu.Item
           name="inbox"
           active={activeItem === "inbox"}

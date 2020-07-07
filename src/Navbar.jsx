@@ -12,9 +12,8 @@
 
 import { useOktaAuth } from "@okta/okta-react";
 import React from "react";
-import { Container, Icon, Image, Menu } from "semantic-ui-react";
+import { Container, Icon, Image, Menu, Input } from "semantic-ui-react";
 import SubscribeButton from "./components/SubscribeButton";
-import Dashboard from "./components/Dashboard";
 
 const Navbar = () => {
   const { authState, authService } = useOktaAuth();
@@ -27,10 +26,7 @@ const Navbar = () => {
       <Menu fixed="top">
         <Container>
           <Menu.Item>
-            <Image size="tiny" src="/images/ping7.png" />
-          </Menu.Item>
-          <Menu.Item as="a" header href="/">
-            &nbsp; <Dashboard />
+            <Image size="tiny" src="/images/ping7.png" as="a" href="/" />
           </Menu.Item>
           {authState.isAuthenticated && (
             <Menu.Item id="messages-button" as="a" href="/messages">
@@ -53,12 +49,12 @@ const Navbar = () => {
               Login
             </Menu.Item>
           )}
-          {/* {authState.isAuthenticated && (
-            <Menu.Item id="dashboard-button" as="a" href="/dashboard">
-              <Icon name="mail outline" />
-              Dashboard
+          {authState.isAuthenticated && (
+            <Menu.Item id="Search-Button">
+              <Input icon="search" placeholder="Search mail..." />
             </Menu.Item>
-          )} */}
+          )}
+
           <SubscribeButton />
         </Container>
       </Menu>
