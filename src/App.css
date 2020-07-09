@@ -1,44 +1,50 @@
-/*
- * Copyright (c) 2018, Okta, Inc. and/or its affiliates. All rights reserved.
- * The Okta software accompanied by this notice is provided pursuant to the Apache License, Version 2.0 (the "License.")
- *
- * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *
- * See the License for the specific language governing permissions and limitations under the License.
- */
-
-.App {
-    text-align: center;
+body {
+	background-color: cornflowerblue;
 }
 
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+.info {
+	display: flex;
+	grid-template-columns: 30% 30% 30%;
+	justify-content: space-evenly;
+	margin-top: 1rem;
+	height: 90vh;
 }
 
-.App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
+@media (max-width: 1120px) {
+	.hero {
+		background-image: none;
+		background-color: lightcoral;
+		padding: 1rem 0;
+		margin-top: auto;
+		height: auto;
+	}
+
+	.cta {
+		align-items: center;
+	}
+
+	.cta-wrapper {
+		width: 100%;
+		padding: 0;
+		justify-content: center;
+		padding-right: none;
+	}
+
+	.text-left {
+		text-align: center;
+	}
 }
 
-.App-title {
-    font-size: 1.5em;
-}
+@media (max-width: 830px) {
+	.info {
+		grid-template-columns: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+	}
 
-.App-intro {
-    font-size: large;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+	.info-card {
+		margin: 0.5rem 0;
+	}
 }

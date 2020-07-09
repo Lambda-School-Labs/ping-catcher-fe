@@ -10,49 +10,49 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { useOktaAuth } from "@okta/okta-react";
-import React from "react";
-import { Container, Icon, Image, Menu, Input } from "semantic-ui-react";
-import SubscribeButton from "./components/SubscribeButton";
+import { useOktaAuth } from '@okta/okta-react'
+import React from 'react'
+import { Container, Icon, Image, Menu, Input } from 'semantic-ui-react'
+import SubscribeButton from './components/SubscribeButton'
 
-const Navbar = () => {
-  const { authState, authService } = useOktaAuth();
+const NavbarApp = () => {
+  const { authState, authService } = useOktaAuth()
 
-  const login = async () => authService.login("/");
-  const logout = async () => authService.logout("/");
+  const login = async () => authService.login('/')
+  const logout = async () => authService.logout('/')
 
   return (
     <div>
-      <Menu fixed="top">
+      <Menu fixed='top'>
         <Container>
           <Menu.Item>
-            <Image size="tiny" src="/images/ping7.png" as="a" href="/" />
+            <Image size='tiny' src='/images/ping7.png' as='a' href='/' />
           </Menu.Item>
 
           {authState.isAuthenticated && (
-            <Menu.Item id="messages-button" as="a" href="/messages">
-              <Icon name="mail outline" />
+            <Menu.Item id='messages-button' as='a' href='/messages'>
+              <Icon name='mail outline' />
               Messages
             </Menu.Item>
           )}
           {authState.isAuthenticated && (
-            <Menu.Item id="profile-button" as="a" href="/profile">
+            <Menu.Item id='profile-button' as='a' href='/profile'>
               Profile
             </Menu.Item>
           )}
           {authState.isAuthenticated && (
-            <Menu.Item id="logout-button" as="a" onClick={logout}>
+            <Menu.Item id='logout-button' as='a' onClick={logout}>
               Logout
             </Menu.Item>
           )}
           {!authState.isPending && !authState.isAuthenticated && (
-            <Menu.Item as="a" onClick={login}>
+            <Menu.Item as='a' onClick={login}>
               Login
             </Menu.Item>
           )}
           {authState.isAuthenticated && (
-            <Menu.Item id="Search-Button">
-              <Input icon="search" placeholder="Search mail..." />
+            <Menu.Item id='Search-Button'>
+              <Input icon='search' placeholder='Search mail...' />
             </Menu.Item>
           )}
 
@@ -60,6 +60,6 @@ const Navbar = () => {
         </Container>
       </Menu>
     </div>
-  );
-};
-export default Navbar;
+  )
+}
+export default NavbarApp
