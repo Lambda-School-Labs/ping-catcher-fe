@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import PingCard from "./PingCard";
 
 const SlackEvents = () => {
   const [event, setEvent] = useState();
@@ -8,20 +7,17 @@ const SlackEvents = () => {
   useEffect(() => {
     axios
       .get("https://ping-catcher-be.herokuapp.com/event")
-
-      .then((response) => {
-        const eventResponse = response.data.map((item, i) => {
-          return (
-            <PingCard
-              i={i}
-              text={item.text}
-              type={item.type}
-              team={item.team}
-            />
-          );
-        });
-        setEvent(eventResponse);
-      })
+      .then((response) =>
+        setEvent(
+          response.data.map((item) => {
+            return (
+              <h1>
+                {item.text}, {item.type}, {item.team}
+              </h1>
+            );
+          })
+        )
+      )
 
       .catch(function (error) {
         // handle error
@@ -29,7 +25,11 @@ const SlackEvents = () => {
       });
   }, []);
 
-  return <div>{event}</div>;
+  return (
+    <div>
+      <h1>{event}</h1>
+    </div>
+  );
 };
 
 export default SlackEvents;

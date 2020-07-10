@@ -12,7 +12,7 @@ import OrganizeCard from "./components/landingPage/infoCard/OrganizeCard";
 import Footer from "./components/landingPage/footer/Footer";
 
 import NavbarApp from "./NavbarApp";
-import PingCard from "./components/PingCard";
+// import PingCard from "./components/PingCard";
 import Sidebar from "./components/SideBar";
 import SlackEvents from "./components/SlackEvents";
 import Profile from "./Profile";
@@ -31,12 +31,12 @@ function App() {
       {authState.isAuthenticated ? (
         <>
           <NavbarApp />
-          <h4 style={{ margin: "5rem 0 0 " }}>dashboard</h4>
+          <h4 style={{ margin: "5rem 0 0 ", fontSize: "3rem" }}>dashboard</h4>
           <div style={{ display: "flex", justifyContent: "space-evenly" }}>
             <Sidebar />
-            <PingCard />
+            <SlackEvents />
           </div>
-          <SlackEvents />
+          {/* <PingCard /> */}
         </>
       ) : (
         <div>
