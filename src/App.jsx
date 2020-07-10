@@ -1,29 +1,29 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import { useOktaAuth } from '@okta/okta-react'
-import { SecureRoute, LoginCallback } from '@okta/okta-react'
+import React from "react";
+import { Route } from "react-router-dom";
+import { useOktaAuth } from "@okta/okta-react";
+import { SecureRoute, LoginCallback } from "@okta/okta-react";
 // import config from './config'
 
-import Navbar from './components/landingPage/navbar/Navbar'
-import Hero from './components/landingPage/hero/Hero'
-import SlackCard from './components/landingPage/infoCard/SlackCard'
-import NotifyCard from './components/landingPage/infoCard/NotifyCard'
-import OrganizeCard from './components/landingPage/infoCard/OrganizeCard'
-import Footer from './components/landingPage/footer/Footer'
+import Navbar from "./components/landingPage/navbar/Navbar";
+import Hero from "./components/landingPage/hero/Hero";
+import SlackCard from "./components/landingPage/infoCard/SlackCard";
+import NotifyCard from "./components/landingPage/infoCard/NotifyCard";
+import OrganizeCard from "./components/landingPage/infoCard/OrganizeCard";
+import Footer from "./components/landingPage/footer/Footer";
 
-import NavbarApp from './NavbarApp'
-import PingCard from './components/PingCard'
-import Sidebar from './components/SideBar'
-import SlackEvents from './components/SlackEvents'
-import Profile from './Profile'
+import NavbarApp from "./NavbarApp";
+import PingCard from "./components/PingCard";
+import Sidebar from "./components/SideBar";
+import SlackEvents from "./components/SlackEvents";
+import Profile from "./Profile";
 
-import './App.css'
+import "./App.css";
 
-function App () {
-  const { authState, authService } = useOktaAuth()
+function App() {
+  const { authState, authService } = useOktaAuth();
 
-  const login = async () => authService.login('/')
-  const logout = async () => authService.logout('/')
+  const login = async () => authService.login("/");
+  const logout = async () => authService.logout("/");
 
   // const history = useHistory()
   return (
@@ -31,9 +31,11 @@ function App () {
       {authState.isAuthenticated ? (
         <>
           <NavbarApp />
-          <h4>dashboard</h4>
-          <PingCard />
-          <Sidebar />
+          <h4 style={{ margin: "5rem 0 0 " }}>dashboard</h4>
+          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+            <Sidebar />
+            <PingCard />
+          </div>
           <SlackEvents />
         </>
       ) : (
@@ -42,7 +44,7 @@ function App () {
             <Navbar login={login} logout={logout} authState={authState} />
           </header>
           <Hero login={login} logout={logout} authState={authState} />
-          <section className='info'>
+          <section className="info">
             <SlackCard />
             <NotifyCard />
             <OrganizeCard />
@@ -50,10 +52,10 @@ function App () {
           <Footer />
         </div>
       )}
-      <SecureRoute path='/profile' component={Profile} />
-      <Route path='/implicit/callback' component={LoginCallback} />
+      <SecureRoute path="/profile" component={Profile} />
+      <Route path="/implicit/callback" component={LoginCallback} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
