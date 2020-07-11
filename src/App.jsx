@@ -2,17 +2,10 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { SecureRoute, LoginCallback } from "@okta/okta-react";
-// import config from './config'
 
-import Navbar from "./components/landingPage/navbar/Navbar";
-import Hero from "./components/landingPage/hero/Hero";
-import SlackCard from "./components/landingPage/infoCard/SlackCard";
-import NotifyCard from "./components/landingPage/infoCard/NotifyCard";
-import OrganizeCard from "./components/landingPage/infoCard/OrganizeCard";
-import Footer from "./components/landingPage/footer/Footer";
+import LandingPage from './components/landingPage/page/LandingPage'
 
 import NavbarApp from "./NavbarApp";
-// import PingCard from "./components/PingCard";
 import Sidebar from "./components/SideBar";
 import SlackEvents from "./components/SlackEvents";
 import Profile from "./Profile";
@@ -25,7 +18,6 @@ function App() {
   const login = async () => authService.login("/");
   const logout = async () => authService.logout("/");
 
-  // const history = useHistory()
   return (
     <>
       {authState.isAuthenticated ? (
@@ -36,20 +28,10 @@ function App() {
             <Sidebar />
             <SlackEvents />
           </div>
-          {/* <PingCard /> */}
         </>
       ) : (
         <div>
-          <header>
-            <Navbar login={login} logout={logout} authState={authState} />
-          </header>
-          <Hero login={login} logout={logout} authState={authState} />
-          <section className="info">
-            <SlackCard />
-            <NotifyCard />
-            <OrganizeCard />
-          </section>
-          <Footer />
+          <LandingPage login={login} logout={logout} authState={authState} />
         </div>
       )}
       <SecureRoute path="/profile" component={Profile} />

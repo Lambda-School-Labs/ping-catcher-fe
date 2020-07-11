@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Navbar from '../Navbar'
+import Navbar from '../NavbarApp'
 import PingCard from './PingCard'
 import Sidebar from './SideBar'
 import SlackEvents from './SlackEvents'
@@ -12,7 +12,6 @@ const Dashboard = ({ secureRoute }) => {
   return (
     <Fragment>
       <Navbar />
-      {/* <Sidebar /> */}
       <h4>dashboard</h4>
       <PingCard />
       <Sidebar />
