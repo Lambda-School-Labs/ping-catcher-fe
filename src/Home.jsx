@@ -10,42 +10,41 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { useOktaAuth } from "@okta/okta-react";
-import React, { useState, useEffect } from "react";
-import { Button, Header } from "semantic-ui-react";
+import { useOktaAuth } from '@okta/okta-react'
+import React, { useState, useEffect } from 'react'
+import { Button, Header } from 'semantic-ui-react'
 
-import Sidebar from "./components/SideBar";
-import SlackEvents from "./components/SlackEvents";
-
+import Sidebar from './components/SideBar'
+import SlackEvents from './components/SlackEvents'
 
 const Home = () => {
-  const { authState, authService } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
+  const { authState, authService } = useOktaAuth()
+  const [userInfo, setUserInfo] = useState(null)
 
   useEffect(() => {
     if (!authState.isAuthenticated) {
       // When user isn't authenticated, forget any user info
-      setUserInfo(null);
+      setUserInfo(null)
     } else {
-      authService.getUser().then((info) => {
-        setUserInfo(info);
+      authService.getUser().then(info => {
+        setUserInfo(info)
         //TODO: send call to back end with user info
-      });
+      })
     }
-  }, [authState, authService]); // Update if authState changes
+  }, [authState, authService]) // Update if authState changes
 
   const login = async () => {
-    authService.login("/");
-  };
+    authService.login('/')
+  }
 
   if (authState.isPending) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (
     <div>
       <div>
-        <Header as="h1">Home Page</Header>
+        <Header as='h1'>Home</Header>
 
         {authState.isAuthenticated && !userInfo && (
           <div>Loading user information...</div>
@@ -62,7 +61,7 @@ const Home = () => {
 
         {!authState.isAuthenticated && (
           <div>
-            <Button id="login-button" primary onClick={login}>
+            <Button id='login-button' primary onClick={login}>
               Login
             </Button>
           </div>
@@ -76,6 +75,6 @@ const Home = () => {
         )}
       </div>
     </div>
-  );
-};
-export default Home;
+  )
+}
+export default Home

@@ -13,8 +13,8 @@ const PingCard = () => (
           <Feed.Content>
             <Feed.Date content="1 day ago" />
             <Feed.Summary>
-              You added <a href="www.google.com">Jenny Hess</a> to your{" "}
-              <a href="www.google.com">coworker</a> group.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
             </Feed.Summary>
           </Feed.Content>
         </Feed.Event>
@@ -22,21 +22,23 @@ const PingCard = () => (
         <Feed.Event>
           <Feed.Label image="/images/ping7.png" />
           <Feed.Content>
-            <Feed.Date content="3 days ago" />
-            <Feed.Summary>
-              You added <a href="www.google.com">Molly Malone</a> as a friend.
-            </Feed.Summary>
+            <Feed.Date content="1 days ago" />
+            <Feed.Summary>Molly Malone Needs your attention</Feed.Summary>
           </Feed.Content>
         </Feed.Event>
 
         <Feed.Event>
           <Feed.Label image="/images/ping7.png" />
           <Feed.Content>
-            <Feed.Date content="4 days ago" />
-            <Feed.Summary>
-              You added <a href="www.google.com">Elliot Baker</a> to your{" "}
-              <a href="www.google.com">musicians</a> group.
-            </Feed.Summary>
+            <Feed.Date content="1 days ago" />
+            <Feed.Summary>Join us in the Zoom meeting</Feed.Summary>
+          </Feed.Content>
+        </Feed.Event>
+        <Feed.Event>
+          <Feed.Label image="/images/ping7.png" />
+          <Feed.Content>
+            <Feed.Date content="1 days ago" />
+            <Feed.Summary>Careers Meeting</Feed.Summary>
           </Feed.Content>
         </Feed.Event>
       </Feed>
