@@ -1,8 +1,8 @@
-footer {
+.footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Pacifico', cursive !important;
 	font-weight: 400;
 	border-radius: 5px;
 	height: 100px;

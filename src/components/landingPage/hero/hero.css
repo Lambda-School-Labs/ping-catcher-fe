@@ -35,6 +35,7 @@
 	font-family: 'Pacifico', cursive;
 	font-weight: 400;
 	margin: 0;
+	padding-bottom: 0.5em;
 	color: ivory;
 	text-shadow: 2px 2px 1px lightslategrey;
 	animation: shimmer 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;

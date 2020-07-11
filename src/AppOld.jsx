@@ -18,7 +18,7 @@ import config from './config'
 
 const Home = lazy(() => import('./Home'))
 const Messages = lazy(() => import('./Messages'))
-const Navbar = lazy(() => import('./Navbar'))
+const Navbar = lazy(() => import('./NavbarApp'))
 const Profile = lazy(() => import('./Profile'))
 const PingCard = lazy(() => import('./components/PingCard.js'))
 

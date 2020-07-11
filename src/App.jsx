@@ -4,12 +4,7 @@ import { useOktaAuth } from '@okta/okta-react'
 import { SecureRoute, LoginCallback } from '@okta/okta-react'
 // import config from './config'
 
-import Navbar from './components/landingPage/navbar/Navbar'
-import Hero from './components/landingPage/hero/Hero'
-import SlackCard from './components/landingPage/infoCard/SlackCard'
-import NotifyCard from './components/landingPage/infoCard/NotifyCard'
-import OrganizeCard from './components/landingPage/infoCard/OrganizeCard'
-import Footer from './components/landingPage/footer/Footer'
+import LandingPage from './components/landingPage/page/LandingPage'
 
 import NavbarApp from './NavbarApp'
 import PingCard from './components/PingCard'
@@ -38,16 +33,7 @@ function App () {
         </>
       ) : (
         <div>
-          <header>
-            <Navbar login={login} logout={logout} authState={authState} />
-          </header>
-          <Hero login={login} logout={logout} authState={authState} />
-          <section className='info'>
-            <SlackCard />
-            <NotifyCard />
-            <OrganizeCard />
-          </section>
-          <Footer />
+          <LandingPage login={login} logout={logout} authState={authState} />
         </div>
       )}
       <SecureRoute path='/profile' component={Profile} />
