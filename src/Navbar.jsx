@@ -12,54 +12,101 @@
 
 import { useOktaAuth } from "@okta/okta-react";
 import React from "react";
-import { Container, Icon, Image, Menu, Input } from "semantic-ui-react";
 import SubscribeButton from "./components/SubscribeButton";
+// Commenting out the import Semantic-UI.
+// import { Container, Icon, Image, Menu, Input } from "semantic-ui-react";
+
+// Importing Material-UI for the NavBar.
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+// Adding in the default style to the NavBar. Will change the theme at another time.
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
 const Navbar = () => {
   const { authState, authService } = useOktaAuth();
-
   const login = async () => authService.login("/");
   const logout = async () => authService.logout("/");
 
+  const classes = useStyles();
+
   return (
+    // Commenting out the Semantic-UI NavBar.
+//     <div>
+//       <Menu fixed="top">
+//         <Container>
+//           <Menu.Item>
+//             <Image size="tiny" src="/images/ping7.png" as="a" href="/" />
+//           </Menu.Item>
+//           {authState.isAuthenticated && (
+//             <Menu.Item id="messages-button" as="a" href="/messages">
+//               <Icon name="mail outline" />
+//               Messages
+//             </Menu.Item>
+//           )}
+//           {authState.isAuthenticated && (
+//             <Menu.Item id="profile-button" as="a" href="/profile">
+//               Profile
+//             </Menu.Item>
+//           )}
+//           {authState.isAuthenticated && (
+//             <Menu.Item id="logout-button" as="a" onClick={logout}>
+//               Logout
+//             </Menu.Item>
+//           )}
+//           {!authState.isPending && !authState.isAuthenticated && (
+//             <Menu.Item as="a" onClick={login}>
+//               Login
+//             </Menu.Item>
+//           )}
+//           {authState.isAuthenticated && (
+//             <Menu.Item id="Search-Button">
+//               <Input icon="search" placeholder="Search mail..." />
+//             </Menu.Item>
+//           )}
+//           <SubscribeButton />
+//         </Container>
+//       </Menu>
+//     </div>
     <div>
-      <Menu fixed="top">
-        <Container>
-          <Menu.Item>
-            <Image size="tiny" src="/images/ping7.png" as="a" href="/" />
-          </Menu.Item>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            Ping Catcher
+          </Typography>
 
-          {authState.isAuthenticated && (
-            <Menu.Item id="messages-button" as="a" href="/messages">
-              <Icon name="mail outline" />
-              Messages
-            </Menu.Item>
-          )}
-          {authState.isAuthenticated && (
-            <Menu.Item id="profile-button" as="a" href="/profile">
-              Profile
-            </Menu.Item>
-          )}
-          {authState.isAuthenticated && (
-            <Menu.Item id="logout-button" as="a" onClick={logout}>
-              Logout
-            </Menu.Item>
-          )}
-          {!authState.isPending && !authState.isAuthenticated && (
-            <Menu.Item as="a" onClick={login}>
-              Login
-            </Menu.Item>
-          )}
-          {authState.isAuthenticated && (
-            <Menu.Item id="Search-Button">
-              <Input icon="search" placeholder="Search mail..." />
-            </Menu.Item>
-          )}
-
-          <SubscribeButton />
-        </Container>
-      </Menu>
+          {/* Adding in a Search Bar to the NavBar */}
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase placeholder="Search…" classes={{root: classes.inputRoot, input: classes.inputInput,}}inputProps={{'aria-label':'search'}}
+            />
+          </div>
+           {!authState.isPending && !authState.isAuthenticated && (<Button color="inherit" as="a" onClick={login}>Login</Button>)}
+        </Toolbar>
+      </AppBar>
     </div>
   );
 };
+
 export default Navbar;
