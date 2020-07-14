@@ -1,44 +1,17 @@
 import React from "react";
 import { Card, Feed } from "semantic-ui-react";
+import moment from "moment";
 
-const PingCard = () => (
-  <Card>
-    <Card.Content>
-      <Card.Header>Recent Activity</Card.Header>
-    </Card.Content>
+const PingCard = ({ type, text, team, channel, timestamp }) => (
+  <Card style={{ margin: "1rem" }}>
     <Card.Content>
       <Feed>
         <Feed.Event>
           <Feed.Label image="/images/ping7.png" />
           <Feed.Content>
-            <Feed.Date content="1 day ago" />
-            <Feed.Summary>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </Feed.Summary>
-          </Feed.Content>
-        </Feed.Event>
-
-        <Feed.Event>
-          <Feed.Label image="/images/ping7.png" />
-          <Feed.Content>
-            <Feed.Date content="1 days ago" />
-            <Feed.Summary>Molly Malone Needs your attention</Feed.Summary>
-          </Feed.Content>
-        </Feed.Event>
-
-        <Feed.Event>
-          <Feed.Label image="/images/ping7.png" />
-          <Feed.Content>
-            <Feed.Date content="1 days ago" />
-            <Feed.Summary>Join us in the Zoom meeting</Feed.Summary>
-          </Feed.Content>
-        </Feed.Event>
-        <Feed.Event>
-          <Feed.Label image="/images/ping7.png" />
-          <Feed.Content>
-            <Feed.Date content="1 days ago" />
-            <Feed.Summary>Careers Meeting</Feed.Summary>
+            <Feed.Date content={moment.unix(timestamp).calendar()} />
+            <Feed.Summary>{channel}</Feed.Summary>
+            <Feed.Summary>{text}</Feed.Summary>
           </Feed.Content>
         </Feed.Event>
       </Feed>

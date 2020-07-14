@@ -3,12 +3,12 @@ import { Route } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { SecureRoute, LoginCallback } from "@okta/okta-react";
 
-import LandingPage from './components/landingPage/page/LandingPage'
+import LandingPage from "./components/landingPage/page/LandingPage";
 
 import NavbarApp from "./NavbarApp";
 import Sidebar from "./components/SideBar";
-import SlackEvents from "./components/SlackEvents";
 import Profile from "./Profile";
+import EventCard from "./components/EventCard";
 
 import "./App.css";
 
@@ -26,7 +26,7 @@ function App() {
           <h4 style={{ margin: "5rem 0 0 ", fontSize: "3rem" }}>dashboard</h4>
           <div style={{ display: "flex", justifyContent: "space-evenly" }}>
             <Sidebar />
-            <SlackEvents />
+            <EventCard />
           </div>
         </>
       ) : (
