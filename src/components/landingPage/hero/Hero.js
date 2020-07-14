@@ -4,11 +4,11 @@ import './hero.css'
 
 const Hero = ({ login, logout, authState }) => {
   return (
-    <section className='hero'>
+    <section data-testid='heroSection' className='hero'>
       <div className='cta'>
         <div className='cta-wrapper'>
           <h1 className='cta-title'>Ping Catcher</h1>
-          <p className='cta-info-top'>
+          <p data-testid='topInfo' className='cta-info-top'>
             Time to gain <span className='underline'>control</span> over your
             notifications. Create your own channels to group notifications into
             your favorite online chat apps.

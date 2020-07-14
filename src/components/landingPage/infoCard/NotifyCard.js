@@ -7,6 +7,7 @@ const NotifyCard = () => {
       <img
         src='/images/at-solid.svg'
         alt='Catch every ping sent directly to you'
+        data-testid='at-img'
         className='info-img'
         width='150px'
       />
