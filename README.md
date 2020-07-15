@@ -20,12 +20,27 @@
 <br>
 
 4️⃣ Frontend tech stack
+
+####Code Climate
+Project under review and scored by [Code Climate](https://codeclimate.com/github/Lambda-School-Labs/ping-catcher-fe)
+
+<a href="https://codeclimate.com/github/Lambda-School-Labs/ping-catcher-fe/maintainability"><img src="https://api.codeclimate.com/v1/badges/fd25276989f645eb0299/maintainability" /></a>
+
+<a href="https://codeclimate.com/github/Lambda-School-Labs/ping-catcher-fe/test_coverage"><img src="https://api.codeclimate.com/v1/badges/fd25276989f645eb0299/test_coverage" /></a>
+
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![Yarn](https://img.shields.io/badge/yarn-v1.22.4-informational)
-![React](https://img.shields.io/badge/react-v16.13.1-blue.svg)
-![Okta](https://img.shields.io/badge/@Okta-react-blur.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
+
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+[![Yarn](https://img.shields.io/badge/yarn-v1.22.4-informational)](https://yarnpkg.com)
+
+[![React](https://img.shields.io/badge/react-v16.13.1-blue.svg)](https://reactjs.org)
+
+[![ReactRouterDOM](https://img.shields.io/badge/react__router__dom-v5.2.0-blue)](https://reactrouter.com/web/guides/quick-start)
+
+[![Okta](https://img.shields.io/badge/@Okta-okta/react_v3.0.2-blue.svg)](https://developer.okta.com)
+
+[![testing_library](https://img.shields.io/badge/%40testing__library-react--v9.3.2-blue)](https://testing-library.com)
 
 🚫 more info on using badges [here](https://github.com/badges/shields)
 
@@ -54,6 +69,8 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 ## 1️⃣ Tech Stack
 
 ### Front end built using:
+
+React, Okta,
 
 #### _Front end framework goes here_
 
