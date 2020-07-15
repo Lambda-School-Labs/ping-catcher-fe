@@ -5,10 +5,15 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+
+// Commenting out the import IconButton and the MenuIcon for now. They're not being used.
+
+// import IconButton from "@material-ui/core/IconButton";
+// import MenuIcon from "@material-ui/icons/Menu";
+
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
+
 // Adding in the default style to the NavBar. Will change the theme at another time.
 const useStyles = makeStyles((theme) => ({
   root: { flexGrow: 1 },
