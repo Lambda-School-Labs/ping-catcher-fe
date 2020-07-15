@@ -69,7 +69,5 @@
       "html"
     ]
   },
-  "devDependencies": {
-    "jest-dom": "^4.0.0"
-  }
+  "devDependencies": {}
 }
