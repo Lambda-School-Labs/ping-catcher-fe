@@ -7,6 +7,7 @@ const SlackCard = () => {
       <img
         src='/images/slack-hash-brands.svg'
         alt='The communication platform'
+        data-testid='at-img'
         className='info-img'
         width='150px'
       />
