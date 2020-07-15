@@ -3,11 +3,8 @@ import Navbar from '../NavbarApp'
 import PingCard from './PingCard'
 import Sidebar from './SideBar'
 import SlackEvents from './SlackEvents'
-
 import Profile from '../Profile'
-
 // import Sidebar from "./SideBar.js";
-
 const Dashboard = ({ secureRoute }) => {
   return (
     <Fragment>
@@ -20,5 +17,4 @@ const Dashboard = ({ secureRoute }) => {
     </Fragment>
   )
 }
-
 export default Dashboard

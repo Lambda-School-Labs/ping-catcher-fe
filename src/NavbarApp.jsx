@@ -64,14 +64,15 @@ const NavbarApp = () => {
     <div>
       <AppBar position="fixed">
         <Toolbar>
-          <IconButton
+          {/* Commenting out the Hamburger Menu, Going to add more functionality to it later. */}
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title}>
             Ping Catcher
           </Typography>
