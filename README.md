@@ -6,11 +6,9 @@
 
 # 1️⃣ Ping Catcher
 
-1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+1️⃣ You can find the deployed project at [Ping Catcher]('https://www.ping-catcher.com').
 
 ## 4️⃣ Contributors
-
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
 
 |                                                                                              [Trevor Martin](https://github.com/debauchery1st)                                                                                               |                                                                                              [Jamelle Boose](https://github.com/Jamelle-Boose)                                                                                               |                                                                                               [Eric Santos](https://github.com/eric-santos)                                                                                                |                                                                                                   [Kyle Pace](https://github.com/kpace622)                                                                                                   |                                                   [Mason Roberts](https://github.com/Developer3027)                                                    |                                                                                               [Matt Steele](https://github.com/msteele11101)                                                                                               |                                                          [Aaron Anderson](https://github.com/anders529)                                                          |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -21,11 +19,11 @@
 <br>
 <br>
 
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
+4️⃣ Frontend tech stack
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
+![Yarn](https://img.shields.io/badge/yarn-v1.22.4-informational)
+![React](https://img.shields.io/badge/react-v16.13.1-blue.svg)
+![Okta](https://img.shields.io/badge/@Okta-react-blur.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
