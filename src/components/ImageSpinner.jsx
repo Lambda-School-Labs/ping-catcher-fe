@@ -36,7 +36,7 @@ const ImageSpinner = (props) => {
       newImage[key] = rest[key];
     });
   }, [loaded, rest]);
-  if (loaded) {
+  if (!loaded) {
     return spinner;
   }
   return <img ref={imageRef.current.props} alt={props.alt} />;
