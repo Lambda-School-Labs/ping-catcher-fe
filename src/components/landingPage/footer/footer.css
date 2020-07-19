@@ -1,0 +1,12 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Pacifico', cursive !important;
+	font-weight: 400;
+	border-radius: 5px;
+	height: 100px;
+	color: white;
+	font-weight: 400;
+	background: rgb(190, 0, 175);
+}

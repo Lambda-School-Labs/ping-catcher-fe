@@ -10,7 +10,7 @@ export default class SideBar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu vertical inverted>
+      <Menu vertical inverted style={{ position: "fixed", top: 200, left: 0 }}>
         <Menu.Item></Menu.Item>
         <Menu.Item
           name="inbox"
