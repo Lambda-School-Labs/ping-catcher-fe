@@ -7,7 +7,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import SearchIcon from "@material-ui/icons/Search";
 import EventCard from "./components/EventCard";
 import {CssBaseline, Drawer, fade, makeStyles, useTheme, AppBar, Toolbar,
-        List, Divider, IconButton, ListItem, ListItemIcon, ListItemText, Button, InputBase} from "@material-ui/core";
+        List, Divider, IconButton, ListItem, ListItemText, Button, InputBase} from "@material-ui/core";
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -169,7 +169,6 @@ export default function PersistentDrawerLeft() {
         <List>
           {['Subscribed Channels', 'Pings', 'Messages'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <> </> : <> </>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
