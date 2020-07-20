@@ -1,27 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
 import { useOktaAuth } from "@okta/okta-react";
-import {fade, makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
 import EventCard from "./components/EventCard";
-
+import {CssBaseline, Drawer, fade, makeStyles, useTheme, AppBar, Toolbar,
+        List, Divider, IconButton, ListItem, ListItemIcon, ListItemText, Button, InputBase} from "@material-ui/core";
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -33,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: { display: "block" },
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(['margin', 'width'],
+    {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -41,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(['margin', 'width'],
+    {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -128,7 +116,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
@@ -137,7 +124,6 @@ export default function PersistentDrawerLeft() {
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {setOpen(true);};
   const handleDrawerClose = () => {setOpen(false);};
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -164,12 +150,7 @@ export default function PersistentDrawerLeft() {
               classes={{root: classes.inputRoot,input: classes.inputInput}}
               inputProps={{ 'aria-label': 'search' }}/>
             </div>
-          {!authState.isPending && authState.isAuthenticated && (
-            <Button color="inherit" as="a" onClick={logout}
-             classes={{}}>
-              Logout
-            </Button>
-          )}
+          {!authState.isPending && authState.isAuthenticated && (<Button color="inherit" as="a" onClick={logout} classes={{}}>Logout</Button>)}
             </div>
         </Toolbar>
       </AppBar>
@@ -186,18 +167,9 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Subscribed Channels', 'Pings', 'Messages'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <> </> : <> </>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
