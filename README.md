@@ -73,7 +73,7 @@ React, Okta, React-testing, Material-Ui
 
 #### [Back end](https://github.com/Lambda-School-Labs/ping-catcher-be) built using:
 
-#### Node, Express, PostgressQl
+#### Node, Express, PostgresSQl (also known as Postgres)
 
 - Express is an easy and common framework for creating server end points.
 - Middleware is easy to create and implement
@@ -91,15 +91,19 @@ In order for the app to function correctly, the user must set up their own envir
 
 Production Okta server
 
-- REACT_APP_OKTA_CLIENT_ID=0oahbvrj0hNcoZBXv4x6
-- REACT_APP_OKTA_ORG_URL=https://dev-605205.okta.com
-- SPA_CLIENT_ID=0oahbvrj0hNcoZBXv4x6
+- REACT_APP_OKTA_CLIENT_ID=<your client id>
+- REACT_APP_OKTA_ORG_URL=<your server url>
+- SPA_CLIENT_ID=<your client id>
+
+Create your account at [Okat](https://developer.okta.com). Follow the docs to create your Okta server. Paste in your client id's and the server url.
 
 Development Okta server
 
-- REACT_APP_OKTA_IMPLICIT_CALLBACK_URL=http://localhost:8080/implicit/callback
-- REACT_APP_OKTA_API_MESSAGES=http://localhost:8080/api/messages
-- PORT=8080
+- REACT_APP_OKTA_IMPLICIT_CALLBACK_URL=<http://localhost:300/implicit/callback>
+- REACT_APP_OKTA_API_MESSAGES=<http://localhost:300/api/messages>
+- PORT=300
+
+Once your Okta server is up, you can add local development for working and testing. This allows you to run production and development from the same server. Review Okta docs.
 
 # Content Licenses
 
