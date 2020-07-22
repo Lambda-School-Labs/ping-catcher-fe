@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { SecureRoute, LoginCallback } from "@okta/okta-react";
 import LandingPage from "./components/landingPage/page/LandingPage";
-import PersistentDrawerLeft from "./AppDrawer";
+import ResponsiveDrawer from "./AppDrawerNew";
 import Profile from "./Profile";
 import "./App.css";
 
@@ -16,12 +16,12 @@ function App() {
     <>
       {authState.isAuthenticated ? (
         <>
-          <PersistentDrawerLeft />
+          <ResponsiveDrawer />
         </>
       ) : (
-        <div>
+        <>
           <LandingPage login={login} logout={logout} authState={authState} />
-        </div>
+        </>
       )}
       <SecureRoute path="/profile" component={Profile} />
       <Route path="/implicit/callback" component={LoginCallback} />
