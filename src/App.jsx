@@ -3,11 +3,10 @@ import { Route } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { SecureRoute, LoginCallback } from "@okta/okta-react";
 import LandingPage from "./components/landingPage/page/LandingPage";
-import ResponsiveDrawer from "./AppDrawerNew";
+import ResponsiveDrawer from "./components/navbar/AppDrawer";
 import Profile from "./Profile";
 import { LinearProgress } from "@material-ui/core";
 import "./App.css";
-
 function App() {
   const { authState, authService } = useOktaAuth();
   const login = async () => authService.login("/");
