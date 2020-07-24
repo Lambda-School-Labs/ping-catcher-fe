@@ -21,11 +21,15 @@ function ResponsiveDrawer(props) {
     <div className={classes.root}>
       <CssBaseline />
       <AppBarNav />
+
       <main className={clsx(classes.content)}>
         <div className={classes.toolbar} />
         <EventCard />
+
       </main>
     </div>
   );
 }
+
 export default ResponsiveDrawer;
+
