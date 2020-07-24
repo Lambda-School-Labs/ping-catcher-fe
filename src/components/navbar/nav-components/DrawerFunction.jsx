@@ -1,15 +1,15 @@
-import React from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import TopDivider from './DrawerList';
-import { makeStyles, useTheme, Divider} from "@material-ui/core";
+import React from "react";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import TopDivider from "./DrawerList";
+import { makeStyles, useTheme, Divider } from "@material-ui/core";
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   drawer: {
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
       flexShrink: 0,
     },
@@ -31,21 +31,25 @@ function DrawerFunction(props) {
   );
   return (
     <div className={classes.root}>
-      <nav className={classes.drawer} aria-label="mailbox folders">
-        <Hidden smUp implementation="css">
+      <nav className={classes.drawer} aria-label='mailbox folders'>
+        <Hidden smUp implementation='css'>
           <Drawer
-            variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            variant='temporary'
+            anchor={theme.direction === "rtl" ? "right" : "left"}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{ paper: classes.drawerPaper }}
-            ModalProps={{ keepMounted: true }}>
+            ModalProps={{ keepMounted: true }}
+          >
             {props.drawer}
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer classes={{ paper: classes.drawerPaper}}
-                  variant="permanent" open>
+        <Hidden xsDown implementation='css'>
+          <Drawer
+            classes={{ paper: classes.drawerPaper }}
+            variant='permanent'
+            open
+          >
             {props.drawer}
           </Drawer>
         </Hidden>

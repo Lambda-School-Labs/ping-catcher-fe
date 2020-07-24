@@ -6,11 +6,13 @@ const TopDivider = () => {
   return (
     <>
       <List>
-        {["Subscriptions", "Pings", "Messages", "Subscribe"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {["Subscriptions", "Pings", "Messages", "Subscribe"].map(
+          (text, index) => (
+            <ListItem button key={text}>
+              <ListItemText primary={text} />
+            </ListItem>
+          )
+        )}
       </List>
     </>
   );
