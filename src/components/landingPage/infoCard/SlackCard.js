@@ -1,5 +1,5 @@
-import React from 'react'
-import './infoCard.css'
+import React from "react";
+import "./infoCard.css";
 
 const SlackCard = () => {
   return (
@@ -17,7 +17,6 @@ const SlackCard = () => {
         within the Slack api.
       </p>
     </article>
-  )
-}
-
-export default SlackCard
+  );
+};
+export default SlackCard;

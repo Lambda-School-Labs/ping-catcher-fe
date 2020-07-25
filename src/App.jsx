@@ -11,11 +11,9 @@ function App() {
   const { authState, authService } = useOktaAuth();
   const login = async () => authService.login("/");
   const logout = async () => authService.logout("/");
-
   const showLandingPage = !authState.isPending && !authState.isAuthenticated;
   const showSpinner = authState.isPending;
   const showDashboard = !authState.isPending && authState.isAuthenticated;
-
   const conditionalRender = () => {
     if (showSpinner) {
       // TODO: replace/modify/theme this progress indicator.
@@ -41,8 +39,8 @@ function App() {
   return (
     <>
       {conditionalRender()}
-      <Route path="/implicit/callback" component={LoginCallback} />
-      <SecureRoute path="/profile" component={Profile} />
+      <Route path='/implicit/callback' component={LoginCallback} />
+      <SecureRoute path='/profile' component={Profile} />
     </>
   );
 }
