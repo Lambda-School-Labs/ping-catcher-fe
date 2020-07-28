@@ -1,7 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+// import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
-import './nav.css'
+import "./nav.css";
 
 const Navbar = ({ login, logout, authState }) => {
   return (
@@ -9,18 +10,18 @@ const Navbar = ({ login, logout, authState }) => {
       <img src='/images/Ping_Catcher.png' className='logo' alt='application' />
       <ul className='nav-links'>
         {authState.isAuthenticated && (
-          <Link className='nav-link' onClick={logout}>
+          <Button className='nav-link' onClick={logout}>
             Logout
-          </Link>
+          </Button>
         )}
         {!authState.isPending && !authState.isAuthenticated && (
-          <Link className='nav-link' onClick={login}>
+          <Button className='nav-link' onClick={login} to={""}>
             Login
-          </Link>
+          </Button>
         )}
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

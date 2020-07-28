@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { SecureRoute, LoginCallback } from "@okta/okta-react";
 import LandingPage from "./components/landingPage/page/LandingPage";
@@ -39,8 +39,10 @@ function App() {
   return (
     <>
       {conditionalRender()}
-      <Route path='/implicit/callback' component={LoginCallback} />
-      <SecureRoute path='/profile' component={Profile} />
+      <Switch>
+        <Route path='/implicit/callback' component={LoginCallback} />
+        <SecureRoute path='/profile' component={Profile} />
+      </Switch>
     </>
   );
 }

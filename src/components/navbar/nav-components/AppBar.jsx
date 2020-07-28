@@ -1,4 +1,9 @@
 import React from "react";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import { Menu } from "@material-ui/icons";
+import TopDivider from "./DrawerList";
+import NavBarContent from "./NavContent";
 import {
   makeStyles,
   useTheme,
@@ -6,11 +11,6 @@ import {
   Toolbar,
   Divider,
 } from "@material-ui/core";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import { Menu } from "@material-ui/icons";
-import TopDivider from "./DrawerList";
-import NavBarContent from "./NavContent";
 // import DrawerFunction from './DrawerFunction';
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -21,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: drawerWidth,
     },
   },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
+  // necessary for content to be below app bar.
+  // NOTE: DO NOT REMOVE COMMENT BELOW THIS LINE. Line 26. EXPERIMENTING!!
+  // toolbar: theme.mixins.toolbar,
   drawerPaper: { width: drawerWidth },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -81,6 +82,7 @@ function NavBar(props) {
               variant='permanent'
               open
             >
+              <img src='/images/ping7.png' className='logo' alt='application' />
               {drawer}
             </Drawer>
           </Hidden>
