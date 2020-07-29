@@ -1,8 +1,14 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+import { SecureRoute } from "@okta/okta-react";
 import clsx from "clsx";
 import EventCard from "../EventCard";
 import AppBarNav from "./nav-components/AppBar";
 import { CssBaseline, makeStyles } from "@material-ui/core";
+
+import RankingForm from "../RankingForm.js";
+import Profile from "../../Profile";
+
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: { display: "flex" },
@@ -15,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: drawerWidth,
   },
 }));
+
 function ResponsiveDrawer(props) {
   const classes = useStyles();
   return (
@@ -23,7 +30,11 @@ function ResponsiveDrawer(props) {
       <AppBarNav />
       <main className={clsx(classes.content)}>
         <div className={classes.toolbar} />
-        <EventCard />
+        <Switch>
+          <Route exact path="/" component={EventCard} />
+          <Route path="/rank" component={RankingForm} />
+          <SecureRoute path="/profile" component={Profile} />
+        </Switch>
       </main>
     </div>
   );

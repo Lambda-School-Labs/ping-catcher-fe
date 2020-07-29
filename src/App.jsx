@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
-import { SecureRoute, LoginCallback } from "@okta/okta-react";
+import { LoginCallback } from "@okta/okta-react";
 import LandingPage from "./components/landingPage/page/LandingPage";
 import ResponsiveDrawer from "./components/navbar/AppDrawer";
-import Profile from "./Profile";
 import { LinearProgress } from "@material-ui/core";
 import "./App.css";
+
 function App() {
   const { authState, authService } = useOktaAuth();
   const login = async () => authService.login("/");
@@ -40,8 +40,8 @@ function App() {
     <>
       {conditionalRender()}
       <Switch>
-        <Route path='/implicit/callback' component={LoginCallback} />
         <SecureRoute path='/profile' component={Profile} />
+        <Route path="/implicit/callback" component={LoginCallback} />
       </Switch>
     </>
   );
