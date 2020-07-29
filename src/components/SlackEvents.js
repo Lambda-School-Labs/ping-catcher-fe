@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import eventData from "../mockData/events.json";
-
 const SlackEvents = () => {
   const [event, setEvent] = useState();
 
