@@ -73,6 +73,7 @@ function NavBar(props) {
               classes={{ paper: classes.drawerPaper }}
               ModalProps={{ keepMounted: true }}
             >
+              <img src='/images/ping7.png' className='logo' alt='application' />
               {drawer}
             </Drawer>
           </Hidden>
