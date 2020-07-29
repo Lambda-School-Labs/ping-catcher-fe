@@ -15,7 +15,6 @@ function NavBarContent() {
   const classes = useStyles();
   return (
     <>
-      <img src='/images/Ping_Catcher.png' className='logo' alt='application' />
       <div className={classes.moveRight}>
         <SearchBoxNav />
         <LogOutNav />

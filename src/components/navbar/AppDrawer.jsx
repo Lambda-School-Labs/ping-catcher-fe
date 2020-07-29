@@ -28,7 +28,6 @@ function ResponsiveDrawer(props) {
     <div className={classes.root}>
       <CssBaseline />
       <AppBarNav />
-
       <main className={clsx(classes.content)}>
         <div className={classes.toolbar} />
         <Switch>
@@ -40,5 +39,4 @@ function ResponsiveDrawer(props) {
     </div>
   );
 }
-
 export default ResponsiveDrawer;
