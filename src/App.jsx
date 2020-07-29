@@ -40,7 +40,6 @@ function App() {
     <>
       {conditionalRender()}
       <Switch>
-        <SecureRoute path='/profile' component={Profile} />
         <Route path="/implicit/callback" component={LoginCallback} />
       </Switch>
     </>
