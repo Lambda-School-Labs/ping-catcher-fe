@@ -1,8 +1,18 @@
-import React from "react";
-import eventMock from "../mockData/events.json";
+import React, {useState, useEffect} from "react";
 import PingCard from "./PingCard";
-
+import axios from "axios";
 const EventCard = () => {
+  const [events, setEvents] = useState(
+    []
+  );
+  useEffect(() => {
+    console.log("This is a test");
+    // GET request using axios inside useEffect React hook
+    axios.get("https://ping-catcher-be.herokuapp.com/event")
+         .then (response => {
+           const eventThing = response.data;
+           setEvents(eventThing); })
+  }, []);
   return (
     <div
       style={{
@@ -12,11 +22,10 @@ const EventCard = () => {
         width: "60vw",
       }}
     >
-      {eventMock.map((event, idx) => (
-        <PingCard key={idx} {...event} />
+      {events.map((events, id) => (
+        <PingCard key={id} {...events} />
       ))}
     </div>
-  );
+  )
 };
-
 export default EventCard;
