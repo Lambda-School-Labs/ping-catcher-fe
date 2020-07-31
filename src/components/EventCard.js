@@ -5,6 +5,7 @@ const EventCard = () => {
   const [events, setEvents] = useState(
     []
   );
+  
   useEffect(() => {
     console.log("This is a test");
     // GET request using axios inside useEffect React hook
@@ -13,6 +14,7 @@ const EventCard = () => {
            const eventThing = response.data;
            setEvents(eventThing); })
   }, []);
+
   return (
     <div
       style={{
