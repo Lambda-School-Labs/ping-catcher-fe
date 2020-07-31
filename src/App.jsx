@@ -4,9 +4,8 @@ import { useOktaAuth } from '@okta/okta-react'
 import { LoginCallback } from '@okta/okta-react'
 import LandingPage from './components/landingPage/page/LandingPage'
 // ResponsiveDrawer component moved to DashboardPage
-import ResponsiveDrawer from './components/navbar/AppDrawer'
+import DashPage from './components/dashboard/dashboardPage/DashboardPage'
 import { LinearProgress } from '@material-ui/core'
-import './App.css'
 
 function App () {
   // This is the auth logic in the top most part of the App.
@@ -38,7 +37,7 @@ function App () {
     }
     if (showDashboard) {
       // change to DashboardPage component and pass authState props
-      return <ResponsiveDrawer />
+      return <DashPage logout={logout} />
     }
     if (!showSpinner && !showDashboard && showLandingPage) {
       // LandingPage component with authState for logging in.
