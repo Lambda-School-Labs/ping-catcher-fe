@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import SearchBoxNav from "./SearchBox";
-import LogOutNav from "./LogOutNav";
+import ProfileMenu from "./ProfileMenu"
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -17,7 +17,7 @@ function NavBarContent() {
     <>
       <div className={classes.moveRight}>
         <SearchBoxNav />
-        <LogOutNav />
+        <ProfileMenu />
       </div>
     </>
   );
