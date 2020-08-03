@@ -1,10 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Toolbar from '@material-ui/core/Toolbar'
-import Divider from '@material-ui/core/Divider'
+import { makeStyles, Drawer, CssBaseline, Toolbar, Divider, } from '@material-ui/core'
 
 import DashNavbar from '../dashNav/DashboardNav'
 import SettingDrawer from '../dashDrawer/SettingDrawer'
@@ -23,7 +19,8 @@ const useStyles = makeStyles(theme => ({
   },
   // class passed to Dash-Navbar
   appBar: {
-    zIndex: theme.zIndex.drawer + 1
+    zIndex: theme.zIndex.drawer + 1,
+    height:'4.5rem'
   },
   drawer: {
     width: drawerWidth,
@@ -35,10 +32,6 @@ const useStyles = makeStyles(theme => ({
   drawerContainer: {
     overflow: 'auto'
   }
-  // content: {
-  //   flexGrow: 1,
-  //   padding: theme.spacing(3)
-  // }
 }))
 
 const DashPage = ({ logout }) => {
@@ -59,10 +52,7 @@ const DashPage = ({ logout }) => {
         <Drawer
           className={classes.drawer}
           variant='permanent'
-          classes={{
-            paper: classes.drawerPaper
-          }}
-        >
+          classes={{ paper: classes.drawerPaper }}>
           <Toolbar />
           <div className={classes.drawerContainer}>
             <SettingDrawer />
@@ -75,10 +65,7 @@ const DashPage = ({ logout }) => {
         <Route exact path='/' render={props => <Dashboard {...props} />} />
         <Route path='/profile' render={props => <Profile {...props} />} />
         <Route path='/settings' render={props => <DashSettings {...props} />} />
-        <Route
-          path='/subscription-form'
-          render={props => <SubscriptionForm />}
-        />
+        <Route path='/subscription-form' render={props => <SubscriptionForm />} />
       </Switch>
     </>
   )
