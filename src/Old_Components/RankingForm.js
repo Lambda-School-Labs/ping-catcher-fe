@@ -7,7 +7,8 @@ import {
   makeStyles,
   Container,
 } from "@material-ui/core";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import BookmarkIcon from "@material-ui/icons/Bookmark";
+import Axios from "axios";
 
 import { useForm } from "react-hook-form";
 
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    height: "100vh",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -40,22 +42,38 @@ function RankingForm() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <BookmarkIcon />
         </Avatar>
 
         <form
           className={classes.form}
           noValidate
           onSubmit={handleSubmit((data) => {
-            alert(JSON.stringify(data));
+            Axios.post(
+              "https://ping-catcher-be.herokuapp.com/metaEvent/newSubscription",
+              data
+            )
+              .then((res) => console.log(res))
+              .catch((err) => console.log("error posting", err));
           })}
         >
+          <TextField
+            inputRef={register}
+            name="nickname"
+            variant="outlined"
+            margin="normal"
+            placeholder="Nickname"
+            type="nickname"
+            id="nickname"
+            autoComplete="TIncludes"
+            autoFocus
+          />
           <TextField
             inputRef={register}
             name="text_includes"
             variant="outlined"
             margin="normal"
-            label="Text Includes"
+            placeholder="Text Includes"
             type="text_includes"
             id="text_includes"
             autoComplete="TIncludes"
@@ -66,65 +84,62 @@ function RankingForm() {
             variant="outlined"
             margin="normal"
             id="event_type"
-            label="Event Type"
+            placeholder="Event Type"
             name="event_type"
-            autoFocus
-            defaultValue="Message"
           />
           <TextField
             inputRef={register}
             variant="outlined"
             margin="normal"
             id="from_user"
-            label="From User"
+            placeholder="From User"
             name="from_user"
-            autoFocus
           />
           <TextField
             inputRef={register}
             variant="outlined"
             margin="normal"
             id="from_team"
-            label="From Team"
+            placeholder="From Team"
             name="from_team"
-            autoFocus
           />
           <TextField
             inputRef={register}
             variant="outlined"
             margin="normal"
             id="from_channel"
-            label="From Channel"
+            placeholder="From Channel"
             name="from_channel"
-            autoFocus
           />
           <TextField
             inputRef={register}
             variant="outlined"
             margin="normal"
             id="start_time"
+            placeholder="Start Time"
             label="Start Time"
             name="start_time"
-            autoFocus
+            type="time"
           />
           <TextField
             inputRef={register}
             variant="outlined"
             margin="normal"
             id="end_time"
+            placeholder="End Time"
             label="End Time"
             name="end_time"
-            autoFocus
+            type="time"
           />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Submit
+          </Button>
         </form>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          className={classes.submit}
-        >
-          Submit
-        </Button>
       </div>
     </Container>
   );
