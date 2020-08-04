@@ -70,5 +70,8 @@
       "html"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-plugin-react": "^7.20.5"
+  }
 }
