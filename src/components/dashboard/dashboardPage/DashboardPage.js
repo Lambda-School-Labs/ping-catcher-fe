@@ -70,5 +70,4 @@ const DashPage = ({ logout }) => {
     </>
   )
 }
-
 export default DashPage
