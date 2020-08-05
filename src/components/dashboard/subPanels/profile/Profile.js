@@ -1,32 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { useOktaAuth } from '@okta/okta-react'
+import React, { useState, useEffect } from "react";
+import { useOktaAuth } from "@okta/okta-react";
+
+import SlackButton from "../../../SlackButton";
 
 const Profile = () => {
-  const { authState, authService } = useOktaAuth()
-  const [userInfo, setUserInfo] = useState(null)
+  const { authState, authService } = useOktaAuth();
+  const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
     if (!authState.isAuthenticated) {
       // When user isn't authenticated, forget any user info
-      setUserInfo(null)
+      setUserInfo(null);
     } else {
-      authService.getUser().then(info => {
-        setUserInfo(info)
-      })
+      authService.getUser().then((info) => {
+        setUserInfo(info);
+      });
     }
-  }, [authState, authService]) // Update if authState changes
+  }, [authState, authService]); // Update if authState changes
 
   if (!userInfo) {
     return (
       <div>
         <p>Fetching user profile...</p>
       </div>
-    )
+    );
   }
 
   return (
     <div>
-      <div style={{ marginLeft: '25%', marginTop: '5%' }}>
+      <div style={{ marginLeft: "25%", marginTop: "5%" }}>
         <h1>
           {authState.isAuthenticated && userInfo && (
             <div>
@@ -35,24 +37,29 @@ const Profile = () => {
           )}
         </h1>
         <h4>Info coming from Okta</h4>
+        <SlackButton />
+
+        <h1>test</h1>
         <table>
           <tbody>
-            {Object.entries(userInfo).map(claimEntry => {
-              const claimName = claimEntry[0]
-              const claimValue = claimEntry[1]
-              const claimId = `claim-${claimName}`
+            {Object.entries(userInfo).map((claimEntry) => {
+              const claimName = claimEntry[0];
+              const claimValue = claimEntry[1];
+              const claimId = `claim-${claimName}`;
               return (
-                <tr key={claimName}>
-                  <td>{claimName}</td>
-                  <td id={claimId}>{claimValue}</td>
-                </tr>
-              )
+                <>
+                  <tr key={claimName}>
+                    <td>{claimName}</td>
+                    <td id={claimId}>{claimValue}</td>
+                  </tr>
+                </>
+              );
             })}
           </tbody>
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
