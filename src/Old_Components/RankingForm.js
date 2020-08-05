@@ -131,6 +131,7 @@ function RankingForm() {
             name="end_time"
             type="time"
           />
+          <br />
           <Button
             type="submit"
             variant="contained"

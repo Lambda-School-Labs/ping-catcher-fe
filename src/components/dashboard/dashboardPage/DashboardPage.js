@@ -1,41 +1,50 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import { makeStyles, Drawer, CssBaseline, Toolbar, Divider, } from '@material-ui/core'
+import React, { useState } from "react";
+import { Switch, Route } from "react-router-dom";
+import {
+  makeStyles,
+  Drawer,
+  CssBaseline,
+  Toolbar,
+  Divider,
+} from "@material-ui/core";
 
-import DashNavbar from '../dashNav/DashboardNav'
-import SettingDrawer from '../dashDrawer/SettingDrawer'
-import SubDrawer from '../dashDrawer/SubDrawer'
+import DashNavbar from "../dashNav/DashboardNav";
+import SettingDrawer from "../dashDrawer/SettingDrawer";
+import SubDrawer from "../dashDrawer/SubDrawer";
 
-import Dashboard from '../subPanels/dashboard/Dashboard'
-import Profile from '../subPanels/profile/Profile'
-import DashSettings from '../subPanels/dashSettings/DashSettings'
-import SubscriptionForm from '../subPanels/subscriptionForm/SubscriptionForm'
+import Dashboard from "../subPanels/dashboard/Dashboard";
+import Profile from "../subPanels/profile/Profile";
+import DashSettings from "../subPanels/dashSettings/DashSettings";
+import SubscriptionForm from "../subPanels/subscriptionForm/SubscriptionForm";
+import SlackCallback from "../../SlackCallback";
 
-const drawerWidth = 240
+const drawerWidth = 240;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex'
+    display: "flex",
   },
   // class passed to Dash-Navbar
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    height:'4.5rem'
+    height: "4.5rem",
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
   },
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
   },
   drawerContainer: {
-    overflow: 'auto'
-  }
-}))
+    overflow: "auto",
+  },
+}));
 
 const DashPage = ({ logout }) => {
-  const classes = useStyles()
+  const [slackState, setSlackState] = useState();
+
+  const classes = useStyles();
 
   return (
     <>
@@ -45,14 +54,15 @@ const DashPage = ({ logout }) => {
       Passed in logout from App.js */}
         <DashNavbar
           logout={logout}
-          position='fixed'
+          position="fixed"
           className={classes.appBar}
           style={classes.appBar}
         />
         <Drawer
           className={classes.drawer}
-          variant='permanent'
-          classes={{ paper: classes.drawerPaper }}>
+          variant="permanent"
+          classes={{ paper: classes.drawerPaper }}
+        >
           <Toolbar />
           <div className={classes.drawerContainer}>
             <SettingDrawer />
@@ -62,13 +72,25 @@ const DashPage = ({ logout }) => {
         </Drawer>
       </div>
       <Switch>
-        <Route exact path='/' render={props => <Dashboard {...props} />} />
-        <Route path='/profile' render={props => <Profile {...props} />} />
-        <Route path='/settings' render={props => <DashSettings {...props} />} />
-        <Route path='/subscription-form' render={props => <SubscriptionForm />} />
+        <Route exact path="/" render={(props) => <Dashboard {...props} />} />
+        <Route path="/profile" render={(props) => <Profile {...props} />} />
+        <Route
+          path="/settings"
+          render={(props) => <DashSettings {...props} />}
+        />
+        <Route
+          path="/subscription-form"
+          render={(props) => <SubscriptionForm />}
+        />
+        <Route
+          path="/slackCallback"
+          render={(props) => (
+            <SlackCallback {...props} setSlackState={setSlackState} />
+          )}
+        />
       </Switch>
     </>
-  )
-}
+  );
+};
 
-export default DashPage
+export default DashPage;

@@ -13,6 +13,7 @@
 import React, { useState, useEffect } from "react";
 import { useOktaAuth } from "@okta/okta-react";
 import { Header, Icon, Table } from "semantic-ui-react";
+import SlackButton from "./components/SlackButton";
 
 const Profile = () => {
   const { authState, authService } = useOktaAuth();
@@ -55,10 +56,12 @@ const Profile = () => {
               const claimValue = claimEntry[1];
               const claimId = `claim-${claimName}`;
               return (
-                <tr key={claimName}>
-                  <td>{claimName}</td>
-                  <td id={claimId}>{claimValue}</td>
-                </tr>
+                <>
+                  <tr key={claimName}>
+                    <td>{claimName}</td>
+                    <td id={claimId}>{claimValue}</td>
+                  </tr>
+                </>
               );
             })}
           </tbody>
