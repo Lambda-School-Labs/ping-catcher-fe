@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { makeStyles, Drawer, CssBaseline, Toolbar, Divider, } from '@material-ui/core'
-
+// Drawer
 import DashNavbar from '../dashNav/DashboardNav'
 import SettingDrawer from '../dashDrawer/SettingDrawer'
 import SubDrawer from '../dashDrawer/SubDrawer'
-
+// Components
 import Dashboard from '../subPanels/dashboard/Dashboard'
 import Profile from '../subPanels/profile/Profile'
 import DashSettings from '../subPanels/dashSettings/DashSettings'
@@ -70,5 +70,4 @@ const DashPage = ({ logout }) => {
     </>
   )
 }
-
 export default DashPage
