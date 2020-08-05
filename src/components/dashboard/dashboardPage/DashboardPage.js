@@ -43,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
 
 const DashPage = ({ logout }) => {
   const [slackState, setSlackState] = useState();
-
   const classes = useStyles();
 
   return (
@@ -92,5 +91,4 @@ const DashPage = ({ logout }) => {
     </>
   );
 };
-
 export default DashPage;
