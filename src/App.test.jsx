@@ -11,6 +11,7 @@ jest.mock('@okta/okta-react', () => ({
     };
   }
 }));
+
 describe('App', () => {
   test('renders App component', () => {
     render(
