@@ -11,6 +11,24 @@ import './index.css'
 import dotenv from 'dotenv'
 dotenv.config()
 
+if(process.env.NODE_ENV === 'test') {
+  ReactDOM.render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>,
+    document.getElementById('root')
+  ) 
+  } else {
+    ReactDOM.render(
+      <Security {...config.oidc}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Security>,
+      document.getElementById('root')
+    )
+  }
+
 /* global document */
 /* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
