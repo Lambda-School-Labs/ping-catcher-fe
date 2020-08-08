@@ -18,12 +18,12 @@ const Hero = ({ login, logout, authState }) => {
             you have a moment. Improve your overall sanity and increase
             productivity with Ping Catcher.
           </p>
-          {authState.isAuthenticated && (
+          {authState?.isAuthenticated && (
             <button className='cta-btn' onClick={logout}>
               Logout
             </button>
           )}
-          {!authState.isPending && !authState.isAuthenticated && (
+          {!authState?.isPending && !authState?.isAuthenticated && (
             <button className='cta-btn' onClick={login}>
               Login
             </button>

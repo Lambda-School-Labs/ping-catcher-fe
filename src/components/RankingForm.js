@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RankingForm() {
+function RankingForm({slackState}) {
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
 
@@ -51,6 +51,8 @@ function RankingForm() {
           className={classes.form}
           noValidate
           onSubmit={handleSubmit((data) => {
+            Axios.post('https://slack.com/api/users.identity', slackState)
+
             Axios.post(
               "https://ping-catcher-be.herokuapp.com/metaEvent/newSubscription",
               data

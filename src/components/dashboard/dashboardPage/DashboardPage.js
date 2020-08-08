@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { makeStyles, Drawer, CssBaseline, Toolbar, Divider, } from '@material-ui/core'
 // Drawer
@@ -11,6 +11,7 @@ import Profile from '../subPanels/profile/Profile'
 import DashSettings from '../subPanels/dashSettings/DashSettings'
 import SubscriptionForm from '../subPanels/subscriptionForm/SubscriptionForm'
 import SlackCallback from "../../SlackCallback";
+import RankingForm from "../../RankingForm";
 
 const drawerWidth = 240;
 
@@ -35,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashPage = ({ logout }) => {
-  const [slackState, setSlackState] = useState();
+const DashPage = ({ logout, authState, setSlackState, slackState }) => {
+  // const [slackState, setSlackState] = useState();
   const classes = useStyles();
 
   return (
@@ -81,6 +82,7 @@ const DashPage = ({ logout }) => {
             <SlackCallback {...props} setSlackState={setSlackState} />
           )}
         />
+        <Route path="/rank" slackState={slackState} component={RankingForm} />
       </Switch>
     </>
   )
