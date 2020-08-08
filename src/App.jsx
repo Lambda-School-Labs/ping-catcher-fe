@@ -1,11 +1,12 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { LoginCallback } from "@okta/okta-react";
 import LandingPage from "./components/landingPage/page/LandingPage";
 // ResponsiveDrawer component moved to DashboardPage
 import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
-import RankingForm from "./Old_Components/RankingForm.js";
+import useStateWithLocalStorage from '../src/components/dashboard/subPanels/useStateWithLocalStorage';
+import SlackCallback from '../src/components/SlackCallback';
 import {
   LinearProgress,
   ThemeProvider,
@@ -22,20 +23,31 @@ function prefersDarkMode() {
 }
 
 function App() {
+
   // This is the auth logic in the top most part of the App.
   // Pass this down to both LandingPage and DashboardPage components
   const { authState, authService } = useOktaAuth();
+  const [ localAuthState, setLocalAuthState ] = useStateWithLocalStorage('authState',{});
+  const [ newAuth, setNewAuth] = useState(localAuthState)
+  const [slackState, setSlackState] = useState();
+  
+  useEffect(()=>{
+    setLocalAuthState(JSON.stringify(authState))
+    setNewAuth(authState)
+      console.log(authState)
+  }, [authState])
+
   // Review the Okta path on these
   const login = async () => authService.login("/");
   const logout = async () => authService.logout("/");
 
   // variables to manipulate the '/' root of App to display correct page depanding on auth state.
   // Show the spinner if waiting to get auth back
-  const showSpinner = authState.isPending;
+  const showSpinner = newAuth?.isPending;
   // Show Landing page if not authorized - no token
-  const showLandingPage = !authState.isPending && !authState.isAuthenticated;
+  const showLandingPage = !newAuth?.isPending && !newAuth?.isAuthenticated;
   // Show the Dashboard page component
-  const showDashboard = authState.isAuthenticated;
+  const showDashboard = newAuth?.isAuthenticated;
 
   // Setting up Dark Mode to be used at the App.js level.
   const [darkMode, setDarkMode] = useState(prefersDarkMode());
@@ -69,12 +81,12 @@ function App() {
     }
     if (showDashboard) {
       // change to DashboardPage component and pass authState props
-      return <DashPage logout={logout} />;
+      return <DashPage logout={logout} setSlackState={setSlackState} slackState={slackState}/>;
     }
     if (!showSpinner && !showDashboard && showLandingPage) {
       // LandingPage component with authState for logging in.
       return (
-        <LandingPage login={login} logout={logout} authState={authState} />
+        <LandingPage login={login} logout={logout} authState={newAuth} />
       );
     }
     return <h1>ERROR : conditional render encountered unknown condition.</h1>;
@@ -100,7 +112,12 @@ function App() {
           <h3 style={{ position: "fixed", top: 70, left: 1200 }}>Toggle</h3>
           <Switch>
             <Route path="/implicit/callback" component={LoginCallback} />
-            <Route path="/rank" component={RankingForm} />
+            <Route
+              path="/SlackCallback"
+              render={(props) => (
+            <SlackCallback {...props} setSlackState={setSlackState} />
+          )}
+        />
           </Switch>
         </Paper>
       </ThemeProvider>

@@ -9,12 +9,12 @@ const Navbar = ({ login, logout, authState }) => {
     <nav className='nav'>
       <img src='/images/Ping_Catcher.png' className='logo' alt='application' />
       <ul className='nav-links'>
-        {authState.isAuthenticated && (
+        {authState?.isAuthenticated && (
           <Button className='nav-link' onClick={logout}>
             Logout
           </Button>
         )}
-        {!authState.isPending && !authState.isAuthenticated && (
+        {!authState?.isPending && !authState?.isAuthenticated && (
           <Button className='nav-link' onClick={login} to={""}>
             Login
           </Button>
