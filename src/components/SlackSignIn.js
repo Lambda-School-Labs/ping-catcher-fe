@@ -1,6 +1,6 @@
 import React from "react";
 
-import SlackButton from "./SlackButton.js";
+import SlackButton from "./slackInfo/SlackButton.js";
 
 const SlackSignIn = () => {
   return (
