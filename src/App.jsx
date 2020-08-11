@@ -8,9 +8,9 @@ import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
 import useStateWithLocalStorage from "../src/components/dashboard/subPanels/useStateWithLocalStorage";
 import SlackCallback from "../src/components/SlackCallback";
 // import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
+import TokenRequest from "./components/slackInfo/TokenRequest.js";
 
 import SlackSignIn from "./components/SlackSignIn.js";
-import RankingForm from "./components/RankingForm.js";
 import {
   LinearProgress,
   ThemeProvider,
@@ -89,7 +89,13 @@ function App() {
       //   />
       // );
       if (!slackState) return <SlackSignIn />;
-      return <DashPage logout={logout} />;
+      console.log("slackState", slackState);
+      return (
+        <>
+          <TokenRequest setSlackState={setSlackState} slackState={slackState} />
+          <DashPage logout={logout} slackState={slackState} />
+        </>
+      );
     }
     if (!showSpinner && !showDashboard && showLandingPage) {
       // LandingPage component with authState for logging in.
@@ -124,7 +130,6 @@ function App() {
                 <SlackCallback {...props} setSlackState={setSlackState} />
               )}
             />
-            <Route path="/rank" component={RankingForm} />
             <Route path="/slackSignIn" component={SlackSignIn} />
           </Switch>
         </Paper>
