@@ -23,7 +23,7 @@ import "./index.css";
 function prefersDarkMode() {
   if (!window.matchMedia) return;
   const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
-  console.log("user prefers dark-mode", darkMode.matches);
+  // console.log("user prefers dark-mode", darkMode.matches);
   return darkMode.matches;
 }
 
@@ -42,7 +42,6 @@ function App() {
   useEffect(() => {
     setLocalAuthState(JSON.stringify(authState));
     setNewAuth(authState);
-    console.log(authState);
   }, [authState]);
   const login = async () => authService.login("/");
   const logout = async () => authService.logout("/");
@@ -89,7 +88,6 @@ function App() {
       //   />
       // );
       if (!slackState) return <SlackSignIn />;
-      console.log("slackState", slackState);
       return (
         <>
           <TokenRequest setSlackState={setSlackState} slackState={slackState} />
