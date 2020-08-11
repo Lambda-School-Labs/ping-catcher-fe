@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useOktaAuth } from "@okta/okta-react";
 
-import SlackButton from "../../../SlackButton";
-
 const Profile = () => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
@@ -36,10 +34,7 @@ const Profile = () => {
             </div>
           )}
         </h1>
-        <h4>Info coming from Okta</h4>
-        <SlackButton />
 
-        <h1>test</h1>
         <table>
           <tbody>
             {Object.entries(userInfo).map((claimEntry) => {
