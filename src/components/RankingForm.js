@@ -1,6 +1,4 @@
-//test commit
-
-import React from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   Button,
@@ -14,6 +12,7 @@ import Axios from "axios";
 
 import { useForm } from "react-hook-form";
 
+//material UI
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -35,11 +34,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RankingForm({slackState}) {
+//default data for formState
+const defaultState = {
+  text_includes: "",
+  even_type: "",
+  from_user: "",
+  from_team: "",
+  from_channel: "",
+  start_time: "",
+  end_time: "",
+  nickname: "",
+};
+//prop drilled state
+function RankingForm({ slackState }) {
+  const [formState, setFormState] = useState(defaultState);
+
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
 
+  const onChange = (e) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+  };
+
   return (
+    //materialUI
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -51,29 +69,32 @@ function RankingForm({slackState}) {
           className={classes.form}
           noValidate
           onSubmit={handleSubmit((data) => {
-            Axios.post('https://slack.com/api/users.identity', slackState)
-
             Axios.post(
               "https://ping-catcher-be.herokuapp.com/metaEvent/newSubscription",
               data
             )
-              .then((res) => console.log(res))
+              //deletes previously filled form data after submitting
+              .then((res) => setFormState(defaultState))
               .catch((err) => console.log("error posting", err));
           })}
         >
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.nickname}
             name="nickname"
             variant="outlined"
             margin="normal"
-            placeholder="Nickname"
-            type="nickname"
             id="nickname"
+            type="nickname"
+            placeholder="Nickname"
             autoComplete="TIncludes"
             autoFocus
           />
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.text_includes}
             name="text_includes"
             variant="outlined"
             margin="normal"
@@ -85,6 +106,8 @@ function RankingForm({slackState}) {
 
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.event_type}
             variant="outlined"
             margin="normal"
             id="event_type"
@@ -93,6 +116,8 @@ function RankingForm({slackState}) {
           />
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.from_user}
             variant="outlined"
             margin="normal"
             id="from_user"
@@ -101,6 +126,8 @@ function RankingForm({slackState}) {
           />
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.from_team}
             variant="outlined"
             margin="normal"
             id="from_team"
@@ -109,6 +136,8 @@ function RankingForm({slackState}) {
           />
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.from_channel}
             variant="outlined"
             margin="normal"
             id="from_channel"
@@ -117,6 +146,8 @@ function RankingForm({slackState}) {
           />
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.start_time}
             variant="outlined"
             margin="normal"
             id="start_time"
@@ -127,6 +158,8 @@ function RankingForm({slackState}) {
           />
           <TextField
             inputRef={register}
+            onChange={onChange}
+            value={formState.end_time}
             variant="outlined"
             margin="normal"
             id="end_time"
@@ -135,7 +168,21 @@ function RankingForm({slackState}) {
             name="end_time"
             type="time"
           />
-          <br />
+          <TextField
+            inputRef={register}
+            name="slackUser"
+            variant="outlined"
+            margin="normal"
+            id="slackUser"
+            type="slackUser"
+            //slack user id after token verification
+            value={slackState.authed_user.id}
+            placeholder="slackUser"
+            autoComplete="TIncludes"
+            autoFocus
+            style={{ visibility: "hidden" }}
+          />
+
           <Button
             type="submit"
             variant="contained"

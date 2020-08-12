@@ -79,19 +79,15 @@ function App() {
       );
     }
     if (showDashboard) {
-      // change to DashboardPage component and pass authState props
-      // return (
-      //   <DashPage
-      //     logout={logout}
-      //     setSlackState={setSlackState}
-      //     slackState={slackState}
-      //   />
-      // );
       if (!slackState) return <SlackSignIn />;
       return (
         <>
           <TokenRequest setSlackState={setSlackState} slackState={slackState} />
-          <DashPage logout={logout} slackState={slackState} />
+          <DashPage
+            logout={logout}
+            slackState={slackState}
+            setSlackState={setSlackState}
+          />
         </>
       );
     }

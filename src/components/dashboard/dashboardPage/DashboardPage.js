@@ -42,8 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashPage = ({ logout, authState, setSlackState, slackState }) => {
-  // const [slackState, setSlackState] = useState();
+const DashPage = ({ logout, setSlackState, slackState }) => {
   const classes = useStyles();
 
   return (
@@ -80,7 +79,7 @@ const DashPage = ({ logout, authState, setSlackState, slackState }) => {
         />
         <Route
           path="/subscription-form"
-          render={(props) => <SubscriptionForm />}
+          render={(props) => <SubscriptionForm slackState={slackState} />}
         />
         <Route
           path="/slackCallback"
