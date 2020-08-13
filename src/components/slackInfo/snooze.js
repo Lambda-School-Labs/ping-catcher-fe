@@ -15,6 +15,7 @@ const Snooze = ({ slackState, setSlackState }) => {
       .then((res) => console.log(res.data))
       .catch((err) => console.log("error getting snooze", err));
   };
+  //upper cased snooze component title
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleClick}>
