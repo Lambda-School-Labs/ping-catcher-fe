@@ -1,5 +1,5 @@
 import React from "react";
-import Snooze from "../../../../components/slackInfo/Snooze.js";
+import Snooze from "../../../../components/slackInfo/Snooze";
 
 const Dashboard = ({ slackState, setSlackState }) => {
   return (
