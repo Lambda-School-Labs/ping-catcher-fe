@@ -71,7 +71,17 @@ const DashPage = ({ logout, setSlackState, slackState }) => {
         </Drawer>
       </div>
       <Switch>
-        <Route exact path="/" render={(props) => <Dashboard {...props} />} />
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <Dashboard
+              {...props}
+              setSlackState={setSlackState}
+              slackState={slackState}
+            />
+          )}
+        />
         <Route path="/profile" render={(props) => <Profile {...props} />} />
         <Route
           path="/settings"
