@@ -48,13 +48,12 @@ const defaultState = {
 //prop drilled state
 function RankingForm({ slackState }) {
   const [formState, setFormState] = useState(defaultState);
-
-  const classes = useStyles();
-  const { register, handleSubmit } = useForm();
-
   const onChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
+
+  const classes = useStyles();
+  const { register, handleSubmit } = useForm();
 
   return (
     //materialUI
