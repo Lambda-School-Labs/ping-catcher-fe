@@ -18,6 +18,7 @@ import DashSettings from "../subPanels/dashSettings/DashSettings";
 import SubscriptionForm from "../subPanels/subscriptionForm/SubscriptionForm";
 import SlackCallback from "../../SlackCallback";
 import RankingForm from "../../RankingForm";
+import MembersList from "../../MembersList";
 
 const drawerWidth = 240;
 
@@ -78,8 +79,14 @@ const DashPage = ({ logout, authState, setSlackState, slackState }) => {
           render={(props) => <DashSettings {...props} />}
         />
         <Route
-          path="/subscription-form"
-          render={(props) => <SubscriptionForm />}
+          path="/form"
+          render={(props) => (
+            <SubscriptionForm
+              {...props}
+              slackState={slackState}
+              setSlackState={setSlackState}
+            />
+          )}
         />
         <Route
           path="/slackCallback"
@@ -88,6 +95,16 @@ const DashPage = ({ logout, authState, setSlackState, slackState }) => {
           )}
         />
         <Route path="/rank" slackState={slackState} component={RankingForm} />
+        <Route
+          path="/membersList"
+          render={(props) => (
+            <MembersList
+              {...props}
+              slackState={slackState}
+              setSlackState={setSlackState}
+            />
+          )}
+        />
       </Switch>
     </>
   );

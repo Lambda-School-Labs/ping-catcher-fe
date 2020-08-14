@@ -125,12 +125,6 @@ function App() {
               )}
             />
             <Route path="/slackSignIn" component={SlackSignIn} />
-            {/* <Route
-              path="/memberList"
-              component={MemberList}
-              slackState={slackState}
-              setSlackState={setSlackState}
-            /> */}
           </Switch>
         </Paper>
       </ThemeProvider>
