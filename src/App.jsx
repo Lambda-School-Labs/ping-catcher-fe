@@ -9,7 +9,6 @@ import useStateWithLocalStorage from "../src/components/dashboard/subPanels/useS
 import SlackCallback from "../src/components/SlackCallback";
 // import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
 import TokenRequest from "./components/slackInfo/TokenRequest.js";
-import MemberList from "./components/MembersList";
 
 import SlackSignIn from "./components/SlackSignIn.js";
 import {

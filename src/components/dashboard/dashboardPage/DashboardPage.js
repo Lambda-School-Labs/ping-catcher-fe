@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
-import { Switch, Route } from 'react-router-dom'
-import { makeStyles, Drawer, CssBaseline, Toolbar, Divider, } from '@material-ui/core'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import {
+  makeStyles,
+  Drawer,
+  CssBaseline,
+  Toolbar,
+  Divider,
+} from "@material-ui/core";
 // Drawer
-import DashNavbar from '../dashNav/DashboardNav'
-import SettingDrawer from '../dashDrawer/SettingDrawer'
-import SubDrawer from '../dashDrawer/SubDrawer'
+import DashNavbar from "../dashNav/DashboardNav";
+import SettingDrawer from "../dashDrawer/SettingDrawer";
+import SubDrawer from "../dashDrawer/SubDrawer";
 // Drawer Components
-import Dashboard from '../subPanels/dashboard/Dashboard'
-import Profile from '../subPanels/profile/Profile'
-import DashSettings from '../subPanels/dashSettings/DashSettings'
-import SubscriptionForm from '../subPanels/subscriptionForm/SubscriptionForm'
+import Dashboard from "../subPanels/dashboard/Dashboard";
+import Profile from "../subPanels/profile/Profile";
+import DashSettings from "../subPanels/dashSettings/DashSettings";
+import SubscriptionForm from "../subPanels/subscriptionForm/SubscriptionForm";
 import SlackCallback from "../../SlackCallback";
 import RankingForm from "../../RankingForm";
 
@@ -37,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DashPage = ({ logout, authState, setSlackState, slackState }) => {
-  // const [slackState, setSlackState] = useState();
   const classes = useStyles();
 
   return (
@@ -85,6 +90,6 @@ const DashPage = ({ logout, authState, setSlackState, slackState }) => {
         <Route path="/rank" slackState={slackState} component={RankingForm} />
       </Switch>
     </>
-  )
-}
-export default DashPage
+  );
+};
+export default DashPage;
