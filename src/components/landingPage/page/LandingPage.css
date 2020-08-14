@@ -1,6 +1,7 @@
 body {
   background-color: cornflowerblue !important;
 }
+
 .info {
   display: flex;
   grid-template-columns: 30% 30% 30%;
@@ -8,12 +9,14 @@ body {
   margin-top: 1rem;
   height: 90vh;
 }
+
 .title {
   font-family: "Pacifico", cursive;
   font-weight: 400;
   font-size: 20px;
   margin-left: 2rem;
 }
+
 @media (max-width: 1120px) {
   .hero {
     background-image: none;
@@ -35,6 +38,7 @@ body {
     text-align: center;
   }
 }
+
 @media (max-width: 830px) {
   .info {
     grid-template-columns: 100%;
