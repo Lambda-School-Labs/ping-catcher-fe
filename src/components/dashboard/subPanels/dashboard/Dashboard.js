@@ -1,13 +1,19 @@
 import React from "react";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 import Snooze from "../../../slackInfo/snooze";
+
 const Dashboard = ({ slackState, setSlackState }) => {
+  const matches = useMediaQuery("(min-width:600px)");
   return (
-    <>
-      <div style={{ marginLeft: "25%", marginTop: "5%" }}>
-        <h1>Dashboard</h1>
-        <Snooze slackState={slackState} setSlackState={setSlackState} />
-      </div>
-    </>
+    <div
+      style={
+        matches ? { marginLeft: "25%", marginTop: "5%" } : { display: "none" }
+      }
+    >
+      <h1>Dashboard</h1>
+      <Snooze slackState={slackState} setSlackState={setSlackState} />
+    </div>
   );
 };
 

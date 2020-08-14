@@ -1,41 +1,51 @@
 // Drawer at top for profile, add subscription, dark mode
 
-import React from 'react'
-import { withRouter } from 'react-router-dom'
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
-import PersonIcon from '@material-ui/icons/Person'
-import DashboardIcon from '@material-ui/icons/Dashboard'
-import SettingsIcon from '@material-ui/icons/Settings'
-import AddIcon from '@material-ui/icons/Add'
+import React from "react";
+import { withRouter, useHistory } from "react-router-dom";
+import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import {
+  Person as PersonIcon,
+  Dashboard as DashboardIcon,
+  Settings as SettingsIcon,
+  Add as AddIcon,
+} from "@material-ui/icons";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-const SettingDrawer = props => {
-  const { history } = props
+const SettingDrawer = (props) => {
+  const history = useHistory();
   const settingsList = [
     {
-      name: 'Profile',
+      name: "Profile",
       icon: <PersonIcon />,
-      onClick: () => history.push('/profile')
+      onClick: () => history.push("/profile"),
     },
     {
-      name: 'Dashboard',
+      name: "Dashboard",
       icon: <DashboardIcon />,
-      onClick: () => history.push('/')
+      onClick: () => history.push("/"),
     },
     {
-      name: 'Settings',
+      name: "Settings",
       icon: <SettingsIcon />,
-      onClick: () => history.push('/settings')
+      onClick: () => history.push("/settings"),
     },
     {
-      name: 'Subscription',
+      name: "Subscription",
       icon: <AddIcon />,
-      onClick: () => history.push('/subscription-form')
-    }
-  ]
+      onClick: () => history.push("/subscription-form"),
+    },
+    {
+      name: "Members List",
+      icon: <PersonIcon />,
+      onClick: () => history.push("/membersList"),
+    },
+  ];
+
+  const matches = useMediaQuery("(min-width:600px)");
   return (
-    <List>
+    <List style={matches ? {} : { display: "none" }}>
       {settingsList.map((item, index) => {
-        const { name, icon, onClick } = item
+        const { name, icon, onClick } = item;
         return (
           <ListItem button key={index} onClick={onClick}>
             <ListItemIcon>
@@ -43,10 +53,10 @@ const SettingDrawer = props => {
             </ListItemIcon>
             <ListItemText primary={name} />
           </ListItem>
-        )
+        );
       })}
     </List>
-  )
-}
+  );
+};
 
-export default withRouter(SettingDrawer)
+export default withRouter(SettingDrawer);

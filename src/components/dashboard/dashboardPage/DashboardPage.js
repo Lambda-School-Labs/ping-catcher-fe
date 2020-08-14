@@ -18,6 +18,8 @@ import DashSettings from "../subPanels/dashSettings/DashSettings";
 import SubscriptionForm from "../subPanels/subscriptionForm/SubscriptionForm";
 import SlackCallback from "../../SlackCallback";
 import RankingForm from "../../RankingForm";
+import MembersList from "../../MembersList";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const drawerWidth = 240;
 
@@ -44,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 const DashPage = ({ logout, setSlackState, slackState }) => {
   const classes = useStyles();
+  const matches = useMediaQuery("(min-width:600px)");
 
   return (
     <>
@@ -61,6 +64,7 @@ const DashPage = ({ logout, setSlackState, slackState }) => {
           className={classes.drawer}
           variant="permanent"
           classes={{ paper: classes.drawerPaper }}
+          style={matches ? {} : { display: "none", zIndex: 0 }}
         >
           <Toolbar />
           <div className={classes.drawerContainer}>
@@ -98,6 +102,16 @@ const DashPage = ({ logout, setSlackState, slackState }) => {
           )}
         />
         <Route path="/rank" slackState={slackState} component={RankingForm} />
+        <Route
+          path="/membersList"
+          render={(props) => (
+            <MembersList
+              {...props}
+              setSlackState={setSlackState}
+              slackState={slackState}
+            />
+          )}
+        />
       </Switch>
     </>
   );
