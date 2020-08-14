@@ -16,6 +16,7 @@
     "eslint": "^6.6.0",
     "jsdoc": "^3.6.4",
     "moment": "^2.27.0",
+    "mutationobserver-shim": "^0.3.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.1.0",

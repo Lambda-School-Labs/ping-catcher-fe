@@ -9,7 +9,6 @@ import {
 } from "@material-ui/core";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import Axios from "axios";
-
 import { useForm } from "react-hook-form";
 
 //material UI
@@ -195,5 +194,4 @@ function RankingForm({ slackState }) {
     </Container>
   );
 }
-
 export default RankingForm;
