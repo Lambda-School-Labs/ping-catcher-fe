@@ -137,13 +137,5 @@ function App() {
       </ThemeProvider>
     </div>
   );
-  //   <>
-  //     {/* // call the function to show the propper page. */}
-  //     {conditionalRender()}
-  //     <Switch>
-  //       <Route path='/implicit/callback' component={LoginCallback} />
-  //     </Switch>
-  //   </>
-  // )
 }
 export default App;
