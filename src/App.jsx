@@ -7,14 +7,12 @@ import LandingPage from "./components/landingPage/page/LandingPage";
 import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
 import useStateWithLocalStorage from "../src/components/dashboard/subPanels/useStateWithLocalStorage";
 import SlackCallback from "../src/components/SlackCallback";
-// import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
 import TokenRequest from "./components/slackInfo/TokenRequest.js";
 
 import SlackSignIn from "./components/SlackSignIn.js";
 import {
   LinearProgress,
   ThemeProvider,
-  Switch as MuiSwitch,
   Paper,
   createMuiTheme,
 } from "@material-ui/core";
@@ -87,6 +85,8 @@ function App() {
             logout={logout}
             slackState={slackState}
             setSlackState={setSlackState}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
           />
         </>
       );
@@ -102,20 +102,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Paper>
           {conditionalRender()}
-          <MuiSwitch
-            color="primary"
-            label="Toggle"
-            size="small"
-            style={{
-              position: "fixed",
-              zIndex: 99999,
-              top: 70,
-              left: 1200,
-            }}
-            checked={darkMode}
-            onChange={() => setDarkMode(!darkMode)}
-          />
-          <h3 style={{ position: "fixed", top: 70, left: 1200 }}>Toggle</h3>
+
           <Switch>
             <Route path="/implicit/callback" component={LoginCallback} />
             <Route

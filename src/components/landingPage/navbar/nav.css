@@ -1,9 +1,9 @@
 .nav {
-	background-color: rgb(190, 0, 175);
+	background-color: #00adb5;
 	display: flex;
 	justify-content: space-between;
 	border-radius: 5px;
-	margin: 0.5em;
+	margin: 0 0.5rem 0.5em 0.5rem;
 	color: white;
 }
 
@@ -13,18 +13,17 @@
 }
 
 .nav-links {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Lora', serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-right: 2rem;
 }
 
-.nav-link {
+.nav-links li {
 	color: white;
 	padding-right: 1.5rem;
 	list-style: none;
-	text-decoration: none;
 	font-size: 18px;
 }
 

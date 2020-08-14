@@ -9,16 +9,13 @@ import "./LandingPage.css";
 const LandingPage = ({ logout, login, authState }) => {
   return (
     <>
-      <header>
-        <Navbar login={login} logout={logout} authState={authState} />
-      </header>
       <Hero login={login} logout={logout} authState={authState} />
-      <section className='info'>
+      <section className="info">
         <SlackCard />
         <NotifyCard />
         <OrganizeCard />
       </section>
-      <Footer title='Ping Catcher' />
+      <Footer title="Ping Catcher" />
     </>
   );
 };

@@ -43,7 +43,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashPage = ({ logout, authState, setSlackState, slackState }) => {
+const DashPage = ({
+  logout,
+  authState,
+  setSlackState,
+  slackState,
+  darkMode,
+  setDarkMode,
+}) => {
   const classes = useStyles();
 
   return (
@@ -57,6 +64,8 @@ const DashPage = ({ logout, authState, setSlackState, slackState }) => {
           position="fixed"
           className={classes.appBar}
           style={classes.appBar}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
         />
         <Drawer
           className={classes.drawer}
