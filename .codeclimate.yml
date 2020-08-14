@@ -1,10 +1,8 @@
-plugins: 
+version: "2"
+plugins:
   eslint:
     enabled: true
     channel: "eslint-6"
-    checks:
-      similar-code:
-      enabled: false
 exclude_patterns:
   "tests/"
   "spec/"
