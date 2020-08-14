@@ -8,7 +8,6 @@ import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
 import useStateWithLocalStorage from "../src/components/dashboard/subPanels/useStateWithLocalStorage";
 import SlackCallback from "../src/components/SlackCallback";
 // import DashPage from "./components/dashboard/dashboardPage/DashboardPage";
-<<<<<<< HEAD
 import TokenRequest from "./components/slackInfo/TokenRequest.js";
 import MemberList from "./components/MembersList";
 
@@ -20,11 +19,6 @@ import {
   Paper,
   createMuiTheme,
 } from "@material-ui/core";
-=======
-import SlackSignIn from "./components/SlackSignIn.js";
-import RankingForm from "./components/RankingForm.js";
-import { LinearProgress, ThemeProvider, Switch as MuiSwitch, Paper, createMuiTheme } from "@material-ui/core";
->>>>>>> 70b8833... removed some old components
 import "./index.css";
 
 function prefersDarkMode() {
