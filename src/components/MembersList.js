@@ -48,7 +48,7 @@ const MembersList = ({ slackState, setSlackState }) => {
           maxWidth: "100%",
         }}
       >
-        {members.map((user) => (
+        {members ? members.map((user) => (
           <Card
             className={classes.root}
             variant="outlined"
@@ -65,7 +65,7 @@ const MembersList = ({ slackState, setSlackState }) => {
               Team ID: {user.team_id}
             </Typography>
           </Card>
-        ))}
+        )) : <p>loading...</p>}
       </div>
     </div>
   );
