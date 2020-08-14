@@ -32,7 +32,7 @@ const SettingDrawer = (props) => {
     {
       name: "Subscription",
       icon: <AddIcon />,
-      onClick: () => history.push("/subscription-form"),
+      onClick: () => history.push("/form"),
     },
     {
       name: "Members List",

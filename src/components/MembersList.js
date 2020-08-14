@@ -32,7 +32,6 @@ const MembersList = ({ slackState, setSlackState }) => {
   //   const bull = <span className={classes.bullet}>•</span>;
 
   const [members, setMembers] = useState([]);
-  console.log(members);
 
   const token = slackState?.authed_user?.access_token;
 

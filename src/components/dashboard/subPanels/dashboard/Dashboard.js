@@ -2,6 +2,7 @@ import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Snooze from "../../../slackInfo/snooze";
+import EventCard from "../../../EventCard";
 
 const Dashboard = ({ slackState, setSlackState }) => {
   const matches = useMediaQuery("(min-width:600px)");
@@ -13,6 +14,7 @@ const Dashboard = ({ slackState, setSlackState }) => {
     >
       <h1>Dashboard</h1>
       <Snooze slackState={slackState} setSlackState={setSlackState} />
+      <EventCard />
     </div>
   );
 };
