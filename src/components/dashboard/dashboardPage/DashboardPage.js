@@ -10,7 +10,7 @@ import {
 // Drawer
 import DashNavbar from "../dashNav/DashboardNav";
 import SettingDrawer from "../dashDrawer/SettingDrawer";
-import SubDrawer from "../dashDrawer/SubDrawer";
+
 // Drawer Components
 import Dashboard from "../subPanels/dashboard/Dashboard";
 import Profile from "../subPanels/profile/Profile";
@@ -76,7 +76,7 @@ const DashPage = ({
           <div className={classes.drawerContainer}>
             <SettingDrawer />
             <Divider />
-            <SubDrawer />
+            {/* <SubDrawer /> */}
           </div>
         </Drawer>
       </div>
