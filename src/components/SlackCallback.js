@@ -7,7 +7,7 @@ const SlackCallback = (props) => {
 
   useEffect(() => {
     props.setSlackState(location.search);
-    history.push("/profile");
+    history.push("/");
   }, [location, history, props]);
 
   return <div></div>;

@@ -6,7 +6,6 @@ import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import {
   Person as PersonIcon,
   Dashboard as DashboardIcon,
-  Settings as SettingsIcon,
   Add as AddIcon,
 } from "@material-ui/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -15,19 +14,9 @@ const SettingDrawer = (props) => {
   const history = useHistory();
   const settingsList = [
     {
-      name: "Profile",
-      icon: <PersonIcon />,
-      onClick: () => history.push("/profile"),
-    },
-    {
       name: "Dashboard",
       icon: <DashboardIcon />,
       onClick: () => history.push("/"),
-    },
-    {
-      name: "Settings",
-      icon: <SettingsIcon />,
-      onClick: () => history.push("/settings"),
     },
     {
       name: "Subscription",

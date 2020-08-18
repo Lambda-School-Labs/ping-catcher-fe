@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../navbar/Navbar";
 import Hero from "../hero/Hero";
 import SlackCard from "../infoCard/SlackCard";
 import NotifyCard from "../infoCard/NotifyCard";
