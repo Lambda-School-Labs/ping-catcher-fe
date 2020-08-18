@@ -1,18 +1,19 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import PingCard from "./PingCard";
 import axios from "axios";
 const EventCard = () => {
-  const [events, setEvents] = useState(
-    []
-  );
+  const [events, setEvents] = useState([]);
   useEffect(() => {
-    console.log("This is a test");
     // GET request using axios inside useEffect React hook
-    axios.get("https://ping-catcher-be.herokuapp.com/event")
-         .then (response => {
-           const eventThing = response.data;
-           setEvents(eventThing); })
-  }, []);
+    axios
+      .get("https://ping-catcher-be.herokuapp.com/event")
+      .then((res) => {
+        setEvents(res.data);
+      })
+      .catch((err) => {
+        console.log("event error", err);
+      });
+  }, [events]);
   return (
     <div
       style={{
@@ -26,6 +27,6 @@ const EventCard = () => {
         <PingCard key={id} {...events} />
       ))}
     </div>
-  )
+  );
 };
 export default EventCard;
