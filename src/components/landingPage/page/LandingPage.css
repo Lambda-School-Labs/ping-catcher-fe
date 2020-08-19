@@ -1,7 +1,3 @@
-body {
-  background-color: cornflowerblue !important;
-}
-
 .info {
   display: flex;
   grid-template-columns: 30% 30% 30%;

@@ -102,7 +102,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <Paper>
           {conditionalRender()}
-
           <Switch>
             <Route path="/implicit/callback" component={LoginCallback} />
             <Route

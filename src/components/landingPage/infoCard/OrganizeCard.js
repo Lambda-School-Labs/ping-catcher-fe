@@ -45,13 +45,14 @@ const OrganizeCard = () => {
       style={
         matches
           ? {
-              width: "30vw",
+              width: "25vw",
               padding: "2rem",
-              height: "100vh",
+              height: "80vh",
               backgroundColor: "#00ADB5",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              marginTop: '2rem'
             }
           : { width: "90vw", backgroundColor: "#00ADB5" }
       }

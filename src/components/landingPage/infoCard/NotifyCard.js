@@ -1,6 +1,5 @@
 import React from "react";
 import "./infoCard.css";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -45,13 +44,14 @@ const OrganizeCard = () => {
       style={
         matches
           ? {
-              width: "30vw",
+              width: "25vw",
               padding: "2rem",
-              height: "100vh",
+              height: "80vh",
               backgroundColor: "#00ADB5",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              marginTop: '2rem'
             }
           : { width: "90vw", backgroundColor: "#00ADB5", marginBottom: "1rem" }
       }
