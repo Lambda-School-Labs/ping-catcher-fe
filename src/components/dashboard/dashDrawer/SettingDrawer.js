@@ -8,7 +8,6 @@ import {
   Dashboard as DashboardIcon,
   Add as AddIcon,
 } from "@material-ui/icons";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const SettingDrawer = (props) => {
   const history = useHistory();
@@ -30,9 +29,8 @@ const SettingDrawer = (props) => {
     },
   ];
 
-  const matches = useMediaQuery("(min-width:600px)");
   return (
-    <List style={matches ? {} : { display: "none" }}>
+    <List>
       {settingsList.map((item, index) => {
         const { name, icon, onClick } = item;
         return (
