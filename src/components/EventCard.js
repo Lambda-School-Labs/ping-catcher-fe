@@ -4,7 +4,7 @@ import axios from "axios";
 const EventCard = () => {
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    console.log("testing");
+    console.log("eventCard");
     // GET request using axios inside useEffect React hook
     axios
       .get("https://ping-catcher-be.herokuapp.com/event")

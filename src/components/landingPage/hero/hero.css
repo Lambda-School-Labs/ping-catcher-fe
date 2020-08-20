@@ -33,7 +33,6 @@
 	padding-bottom: 0.5em;
 	color: #eeeeee;
 	text-shadow: 2px 2px 1px lightslategrey;
-	/* animation: shimmer 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite; */
 }
 
 .cta-info-top {
@@ -50,7 +49,6 @@
 	font-size: 22px;
 	border: none;
 	border-radius: 5px;
-	background-color: thistle;
 	box-shadow: 5px 5px 5px rgb(61, 24, 41);
 }
 
@@ -59,41 +57,7 @@
 	cursor: pointer;
 }
 
-.underline {
-	text-decoration: underline lightcoral;
-}
-
 .text-left {
 	text-align: center;
 	font-family: 'Merriweather', serif;
-}
-
-@keyframes shimmer {
-	0% {
-		color: rgb(168, 217, 247);
-	}
-	50% {
-		color: rgb(252, 196, 196);
-	}
-	75% {
-		color: rgb(169, 158, 235);
-	}
-	100% {
-		color: rgb(206, 197, 255);
-	}
-}
-
-@keyframes shine {
-	0% {
-		background-color: rgb(168, 217, 247);
-	}
-	50% {
-		background-color: rgb(252, 196, 196);
-	}
-	75% {
-		background-color: rgb(169, 158, 235);
-	}
-	100% {
-		background-color: rgb(206, 197, 255);
-	}
 }

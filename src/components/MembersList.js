@@ -28,13 +28,14 @@ const MembersList = ({ slackState, setSlackState }) => {
   const token = slackState?.authed_user?.access_token;
 
   useEffect(() => {
+    console.log("MemberList");
     Axios.get(`https://slack.com/api/users.list?token=${token}`)
       .then((res) => setMembers(res.data.members))
       .catch(function (error) {
         // handle error
         console.log(error);
       });
-  }, [token]);
+  }, []);
 
   return (
     <div style={{}}>
@@ -44,28 +45,34 @@ const MembersList = ({ slackState, setSlackState }) => {
           display: "flex",
           flexFlow: "row wrap",
           justifyContent: "center",
-          alignItems: "center",
-          maxWidth: "100%",
+          height: "100vh",
+          paddingLeft: "20vw",
         }}
       >
-        {members ? members.map((user) => (
-          <Card
-            className={classes.root}
-            variant="outlined"
-            key={user.id}
-            style={{
-              display: "flex",
-              flexFlow: "column wrap",
-              maxWidth: "25%",
-              margin: "1ch",
-            }}
-          >
-            <Typography className={classes.title}>Name: {user.name}</Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              Team ID: {user.team_id}
-            </Typography>
-          </Card>
-        )) : <p>loading...</p>}
+        {members ? (
+          members.map((user) => (
+            <Card
+              className={classes.root}
+              variant="outlined"
+              key={user.id}
+              style={{
+                display: "flex",
+                flexFlow: "column wrap",
+                maxWidth: "25%",
+                margin: "1ch",
+              }}
+            >
+              <Typography className={classes.title}>
+                Name: {user.name}
+              </Typography>
+              <Typography className={classes.pos} color="textSecondary">
+                Team ID: {user.team_id}
+              </Typography>
+            </Card>
+          ))
+        ) : (
+          <p>loading...</p>
+        )}
       </div>
     </div>
   );

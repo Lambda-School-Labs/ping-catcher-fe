@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import {
   makeStyles,
@@ -10,6 +10,7 @@ import {
 // Drawer
 import DashNavbar from "../dashNav/DashboardNav";
 import SettingDrawer from "../dashDrawer/SettingDrawer";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 // Drawer Components
 import Dashboard from "../subPanels/dashboard/Dashboard";
@@ -19,6 +20,7 @@ import SubscriptionForm from "../subPanels/subscriptionForm/SubscriptionForm";
 import SlackCallback from "../../SlackCallback";
 import RankingForm from "../../RankingForm";
 import MembersList from "../../MembersList";
+import SubDrawer from "../dashDrawer/SubDrawer.js";
 
 const drawerWidth = 240;
 
@@ -53,6 +55,11 @@ const DashPage = ({
 }) => {
   const classes = useStyles();
 
+  const mobileOpenQuery = useMediaQuery("(min-width:600px)");
+  const [mobileOpen, setMobileOpen] = useState(true);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
   return (
     <>
       <div className={classes.root}>
@@ -66,17 +73,21 @@ const DashPage = ({
           style={classes.appBar}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
+          handleDrawerToggle={handleDrawerToggle}
         />
         <Drawer
           className={classes.drawer}
-          variant="permanent"
+          variant={mobileOpenQuery ? "permanent" : "temporary"}
           classes={{ paper: classes.drawerPaper }}
+          open={!mobileOpen}
+          onClose={handleDrawerToggle}
+          style={{ zIndex: 0 }}
         >
           <Toolbar />
           <div className={classes.drawerContainer}>
             <SettingDrawer />
             <Divider />
-            {/* <SubDrawer /> */}
+            <SubDrawer />
           </div>
         </Drawer>
       </div>
