@@ -51,7 +51,7 @@ const OrganizeCard = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: '2rem'
+              marginTop: "2rem",
             }
           : { width: "90vw", backgroundColor: "#00ADB5", marginBottom: "1rem" }
       }
