@@ -20,6 +20,7 @@ import SubscriptionForm from "../subPanels/subscriptionForm/SubscriptionForm";
 import SlackCallback from "../../SlackCallback";
 import RankingForm from "../../RankingForm";
 import MembersList from "../../MembersList";
+import SubDrawer from "../dashDrawer/SubDrawer.js";
 
 const drawerWidth = 240;
 
@@ -86,7 +87,7 @@ const DashPage = ({
           <div className={classes.drawerContainer}>
             <SettingDrawer />
             <Divider />
-            {/* <SubDrawer /> */}
+            <SubDrawer />
           </div>
         </Drawer>
       </div>
