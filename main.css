@@ -17,7 +17,6 @@ p {
 	padding: 0.5rem;
 	height: 150px;
 	border-radius: 5px;
-	box-shadow: 1px 1px 2px lightcoral;
 }
 
 .nav {
@@ -124,10 +123,6 @@ p {
 	cursor: pointer;
 }
 
-.underline {
-	text-decoration: underline lightcoral;
-}
-
 .text-left {
 	text-align: start;
 }
@@ -158,7 +153,6 @@ p {
 	padding: 0.5rem;
 	border-radius: 5px;
 	box-shadow: 3px 3px 1px lightslategray;
-	background: linear-gradient(135deg, coral, lightcoral 60%, darksalmon);
 }
 
 .info-img {
@@ -211,23 +205,19 @@ footer {
 @media (max-width: 1120px) {
 	.hero {
 		background-image: none;
-		background-color: lightcoral;
 		padding: 1rem 0;
 		margin-top: auto;
 		height: auto;
 	}
-
 	.cta {
 		align-items: center;
 	}
-
 	.cta-wrapper {
 		width: 100%;
 		padding: 0;
 		justify-content: center;
 		padding-right: none;
 	}
-
 	.text-left {
 		text-align: center;
 	}
@@ -241,7 +231,6 @@ footer {
 		align-items: center;
 		height: auto;
 	}
-
 	.info-card {
 		margin: 0.5rem 0;
 	}
