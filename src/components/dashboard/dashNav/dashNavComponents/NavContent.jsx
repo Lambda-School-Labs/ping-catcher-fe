@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import SearchBoxNav from "./SearchBox";
+import SearchBoxNav from "./SearchBox/SearchBox";
 import ProfileMenu from "./ProfileMenu";
-
 import { Switch as MuiSwitch } from "@material-ui/core";
 import Sun from "@material-ui/icons/Brightness7";
 import Moon from "@material-ui/icons/Brightness3";

@@ -1,13 +1,11 @@
 // Drawer at top for profile, add subscription, dark mode
-
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import {
   Person as PersonIcon,
   Dashboard as DashboardIcon,
-  Add as AddIcon,
-} from "@material-ui/icons";
+  Add as AddIcon } from "@material-ui/icons";
 
 const SettingDrawer = (props) => {
   const history = useHistory();

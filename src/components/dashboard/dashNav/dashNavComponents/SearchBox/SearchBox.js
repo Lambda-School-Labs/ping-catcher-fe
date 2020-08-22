@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import Axios from "axios";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles, fade, InputBase } from "@material-ui/core";
 
@@ -42,8 +43,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchBoxNav() {
+function SearchBoxNav({ slackState, setSlackState }) {
   const classes = useStyles();
+  const [members, setMembers] = useState([]);
+  const token = slackState?.authed_user?.access_token;
+
+  useEffect(() => {
+    console.log("SearchBoxNav");
+    Axios.get(`https://slack.com/api/search.messages?token=${token}`)
+      .then((res) => setMembers(res.data.members))
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, [ token ]);
+
   return (
     <>
       <div className={classes.shiftRight}>
