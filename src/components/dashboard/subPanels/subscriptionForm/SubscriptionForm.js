@@ -1,5 +1,4 @@
 import React from "react";
-
 import RankingForm from "../../../../components/RankingForm.js";
 
 const SubscriptionForm = ({ slackState }) => {
@@ -12,5 +11,4 @@ const SubscriptionForm = ({ slackState }) => {
     </>
   );
 };
-
 export default SubscriptionForm;

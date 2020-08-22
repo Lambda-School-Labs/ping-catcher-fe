@@ -87,7 +87,7 @@ const DashPage = ({
           <div className={classes.drawerContainer}>
             <SettingDrawer />
             <Divider />
-            <SubDrawer />
+            <SubDrawer slackState={slackState}/>
           </div>
         </Drawer>
       </div>
