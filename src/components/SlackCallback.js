@@ -1,20 +1,16 @@
 import React, { useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const SlackCallback = (props) => {
-  // const history = useHistory();
+  const history = useHistory();
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location);
     props.setSlackState(location.search);
-    // history.push("/");
-  }, []);
+    history.push("/");
+  }, [location, history, props]);
 
-  // Removed these from line 11, placing them here for backup.
-  // location, history, props
-
-  return <Link to="/profile" >Click Here to Continue... </Link>;
+  return <div></div>;
 };
 
 export default SlackCallback;
