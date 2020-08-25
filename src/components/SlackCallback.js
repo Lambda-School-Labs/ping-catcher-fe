@@ -6,6 +6,7 @@ const SlackCallback = (props) => {
   const location = useLocation();
 
   useEffect(() => {
+    console.log(location);
     props.setSlackState(location.search);
     history.push("/");
   }, [location, history, props]);
